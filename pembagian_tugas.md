@@ -100,3 +100,44 @@ gantt
     *   [ ] Membuat UI tabel Riwayat Prediksi (`predictions/index.blade.php`) dan halaman detail hasil prediksi (`predictions/show.blade.php`).
     *   [ ] Memoles CSS/Tailwind dengan skema warna pertanian modern (hijau segar), tombol interaktif, dan efek transisi/hover.
     *   [ ] Melakukan *push* akhir ke Git untuk pengujian kelompok secara menyeluruh.
+
+---
+
+## 🎨 Panduan & Standar Konsistensi UI (Wajib Diikuti Semua Anggota)
+
+Untuk menjaga kualitas estetika dan keseragaman tampilan aplikasi SmartFarm, seluruh developer (terutama **Gede** di Fase 5) **wajib** mengikuti aturan desain berikut:
+
+1. **Framework & Konfigurasi CSS**:
+   - Aplikasi menggunakan **Tailwind CSS v4** dengan integrasi `@tailwindcss/vite`.
+   - Seluruh kustomisasi tema dilakukan di file `resources/css/app.css` pada direktori `@theme` (bukan menggunakan file `tailwind.config.js` lama).
+
+2. **Skema Warna Pertanian Modern (Fresh Green)**:
+   - Warna hijau utama disepakati adalah **`#BAD284`** (di-map ke kelas `emerald-500` di `app.css`).
+   - Warna teks/tombol hijau gelap menggunakan **`#9DB36E`** (di-map ke kelas `emerald-600`).
+   - Gunakan selalu utilitas warna `emerald` (misal: `bg-emerald-600`, `text-emerald-700`, `border-emerald-200/50`) untuk warna hijau aplikasi agar warnanya presisi dan konsisten.
+
+3. **Aturan Tipografi (Font System)**:
+   - Font Body (Sans-serif): **Plus Jakarta Sans** (cukup panggil `font-sans` di HTML/Blade).
+   - Font Angka/Statistik (Display): **Outfit** (panggil `font-outfit`).
+   - Font Judul Khusus/Miring (Serif): **Instrument Serif** (panggil `font-serif italic`).
+
+4. **Ikonografi (Ikon Hugeicons)**:
+   - **Dilarang keras** menggunakan emotikon biasa (`😀`, `🌾`, `⚙️`) di dalam aplikasi.
+   - Gunakan CDN Hugeicons yang sudah terpasang di layout utama.
+   - Contoh penulisan ikon: `<i class="hgi-stroke hgi-leaf-01"></i>`.
+   - Gunakan ikon yang terbukti aktif/valid:
+     - Tanaman / Rekomendasi: `hgi-leaf-01`
+     - Pengaturan / Manajemen: `hgi-settings-01`
+     - Analisis / Statistik: `hgi-analytics-01`
+     - Hara / Uji Lahan: `hgi-test-tube`
+     - Riwayat / Log: `hgi-database-01` atau `hgi-note`
+     - Lahan / Segmentasi: `hgi-mountain`
+
+5. **Spesifikasi Tombol**:
+   - Untuk menjaga kebersihan UI, tinggi tombol didesain ringkas. Gunakan kelas padding **`px-6 py-2.5 text-sm font-semibold rounded-full`** (bukan tombol besar `py-4 px-8 text-lg`).
+   - Hindari penambahan ikon berlebihan pada tombol tindakan utama (seperti tombol "Mulai Sekarang" yang dibuat polos tanpa ikon).
+
+6. **Desain Penomoran Langkah (Cara Kerja)**:
+   - Mengikuti desain ala KosRank, nomor langkah (`01`, `02`, `03`) diletakkan secara absolut di sebelah kiri ikon pembungkus (`absolute top-1/2 right-full mr-2 -translate-y-1/2 text-4xl sm:text-5xl font-black font-outfit text-slate-400 select-none transition-colors duration-300 group-hover:text-emerald-500`).
+   - Ikon pembungkus langkah berukuran `w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-50`.
+

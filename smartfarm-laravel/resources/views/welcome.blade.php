@@ -83,14 +83,14 @@
                 </p>
                 <div class="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
                     @if (Route::has('login') && Auth::check())
-                        <a href="{{ url('/dashboard') }}" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-1 active:translate-y-0 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-md shadow-emerald-600/10">
+                        <a href="{{ url('/dashboard') }}" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-0.5 active:translate-y-0 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md shadow-emerald-600/10">
                             Buka Dashboard <i class="hgi-stroke hgi-analytics-01 ml-1 text-sm"></i>
                         </a>
                     @else
-                        <a href="#" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-1 active:translate-y-0 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-md shadow-emerald-600/10" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
-                            Mulai Sekarang <i class="hgi-stroke hgi-arrow-right-01 ml-1 text-sm"></i>
+                        <a href="#" class="flex justify-center items-center bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-0.5 active:translate-y-0 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md shadow-emerald-600/10" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
+                            Mulai Sekarang
                         </a>
-                        <a href="#" class="flex justify-center items-center border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-sm" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
+                        <a href="#" class="flex justify-center items-center border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
                             Masuk
                         </a>
                     @endif
@@ -219,8 +219,8 @@
     <section id="fitur" class="py-16 sm:py-24 lg:py-32 scroll-mt-16">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
             <div class="flex flex-col items-center text-center">
-                <span class="bg-emerald-50 text-emerald-700 border border-emerald-200/60 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
-                    Fitur Utama
+                <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200/60 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+                    <i class="hgi-stroke hgi-star text-emerald-600"></i> Fitur Utama
                 </span>
                 <h2 class="font-serif text-3xl md:text-4xl tracking-tight italic text-slate-900 font-normal">
                     Semua yang Anda Butuhkan
@@ -232,25 +232,49 @@
 
             <!-- Features Grid -->
             <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <!-- Card 1: Rekomendasi Tanaman -->
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-md">
-                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-sprout"></i></div>
+                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-leaf-01"></i></div>
                     <h3 class="mt-4 text-base font-bold text-slate-900 font-outfit">Rekomendasi Tanaman</h3>
-                    <p class="mt-2 text-xs leading-relaxed text-slate-500">Menganalisis keseimbangan unsur hara tanah menggunakan Random Forest demi kecocokan benih tanaman yang optimal.</p>
+                    <p class="mt-2 text-xs leading-relaxed text-slate-500 mb-4">Menganalisis keseimbangan unsur hara tanah menggunakan Random Forest demi kecocokan benih tanaman yang optimal.</p>
+                    <ul class="list-disc pl-4 space-y-1.5 border-t border-slate-100 pt-3 text-[10px] text-slate-500">
+                        <li>Akurasi Random Forest</li>
+                        <li>Analisis N, P, K</li>
+                        <li>Iklim & Lingkungan</li>
+                    </ul>
                 </div>
+                <!-- Card 2: Segmentasi Lahan -->
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-md">
                     <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-mountain"></i></div>
                     <h3 class="mt-4 text-base font-bold text-slate-900 font-outfit">Segmentasi Lahan</h3>
-                    <p class="mt-2 text-xs leading-relaxed text-slate-500">Mengkategorikan jenis lahan Anda menggunakan model K-Means untuk pemeliharaan tanah yang spesifik.</p>
+                    <p class="mt-2 text-xs leading-relaxed text-slate-500 mb-4">Mengkategorikan jenis lahan Anda menggunakan model K-Means untuk pemeliharaan tanah yang spesifik.</p>
+                    <ul class="list-disc pl-4 space-y-1.5 border-t border-slate-100 pt-3 text-[10px] text-slate-500">
+                        <li>Clustering K-Means</li>
+                        <li>Auto Mapping Lahan</li>
+                        <li>Skalasi Fitur Presisi</li>
+                    </ul>
                 </div>
+                <!-- Card 3: Riwayat Historis -->
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-md">
-                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-note"></i></div>
+                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-database-01"></i></div>
                     <h3 class="mt-4 text-base font-bold text-slate-900 font-outfit">Riwayat Historis</h3>
-                    <p class="mt-2 text-xs leading-relaxed text-slate-500">Menyimpan dan mencatat seluruh hasil pengujian hara tanah Anda untuk melihat perkembangan kualitas lahan secara berkala.</p>
+                    <p class="mt-2 text-xs leading-relaxed text-slate-500 mb-4">Menyimpan dan mencatat seluruh hasil pengujian hara tanah Anda untuk melihat perkembangan kualitas lahan secara berkala.</p>
+                    <ul class="list-disc pl-4 space-y-1.5 border-t border-slate-100 pt-3 text-[10px] text-slate-500">
+                        <li>Penyimpanan Otomatis</li>
+                        <li>Log Riwayat Teratur</li>
+                        <li>Pantau Kualitas Lahan</li>
+                    </ul>
                 </div>
+                <!-- Card 4: Manajemen Data -->
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-md">
-                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-wrench"></i></div>
+                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-settings-01"></i></div>
                     <h3 class="mt-4 text-base font-bold text-slate-900 font-outfit">Manajemen Data</h3>
-                    <p class="mt-2 text-xs leading-relaxed text-slate-500">Edit parameter lahan dan jalankan prediksi ulang secara instan tanpa perlu mendaftar ulang dari awal.</p>
+                    <p class="mt-2 text-xs leading-relaxed text-slate-500 mb-4">Edit parameter lahan dan jalankan prediksi ulang secara instan tanpa perlu mendaftar ulang dari awal.</p>
+                    <ul class="list-disc pl-4 space-y-1.5 border-t border-slate-100 pt-3 text-[10px] text-slate-500">
+                        <li>Edit Parameter Lahan</li>
+                        <li>Prediksi Ulang Instan</li>
+                        <li>Hapus Riwayat Lahan</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -260,8 +284,8 @@
     <section id="cara-kerja" class="border-y border-slate-200 bg-slate-50/50 py-16 sm:py-24 lg:py-32 scroll-mt-16">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
             <div class="flex flex-col items-center text-center">
-                <span class="bg-emerald-50 text-emerald-700 border border-emerald-200/60 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
-                    Cara Kerja
+                <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200/60 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+                    <i class="hgi-stroke hgi-settings-01 text-emerald-600"></i> Cara Kerja
                 </span>
                 <h2 class="font-serif text-3xl md:text-4xl tracking-tight italic text-slate-900 font-normal">
                     Tiga Langkah Mudah
@@ -273,26 +297,41 @@
 
             <!-- Steps Grid -->
             <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
-                <div class="flex flex-col items-center text-center">
+                <!-- Step 01 -->
+                <div class="flex flex-col items-center text-center group">
                     <div class="relative">
-                        <span class="absolute top-1/2 right-full mr-2.5 -translate-y-1/2 text-4xl font-extrabold text-slate-200/80 font-outfit sm:text-5xl">01</span>
-                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50"><i class="hgi-stroke hgi-test-tube"></i></div>
+                        <span class="absolute top-1/2 right-full mr-2 -translate-y-1/2 text-4xl font-black text-slate-400 sm:mr-3 sm:text-5xl font-outfit select-none transition-colors duration-300 group-hover:text-emerald-500">
+                            01
+                        </span>
+                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 border border-emerald-100/50 text-emerald-600 sm:w-16 sm:h-16 transition-all duration-300 group-hover:bg-emerald-100 group-hover:scale-105 shadow-sm">
+                            <i class="hgi-stroke hgi-test-tube text-emerald-600 text-xl sm:text-2xl"></i>
+                        </div>
                     </div>
                     <h3 class="mt-6 text-base font-bold text-slate-900 font-outfit">Atur Input Lahan</h3>
                     <p class="mt-2 text-xs leading-relaxed text-slate-500 max-w-xs">Isi formulir dengan parameter hara N, P, K serta kondisi lingkungan seperti suhu, kelembaban, pH, dan curah hujan.</p>
                 </div>
-                <div class="flex flex-col items-center text-center">
+                <!-- Step 02 -->
+                <div class="flex flex-col items-center text-center group">
                     <div class="relative">
-                        <span class="absolute top-1/2 right-full mr-2.5 -translate-y-1/2 text-4xl font-extrabold text-slate-200/80 font-outfit sm:text-5xl">02</span>
-                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50"><i class="hgi-stroke hgi-settings-01"></i></div>
+                        <span class="absolute top-1/2 right-full mr-2 -translate-y-1/2 text-4xl font-black text-slate-400 sm:mr-3 sm:text-5xl font-outfit select-none transition-colors duration-300 group-hover:text-emerald-500">
+                            02
+                        </span>
+                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 border border-emerald-100/50 text-emerald-600 sm:w-16 sm:h-16 transition-all duration-300 group-hover:bg-emerald-100 group-hover:scale-105 shadow-sm">
+                            <i class="hgi-stroke hgi-settings-01 text-emerald-600 text-xl sm:text-2xl"></i>
+                        </div>
                     </div>
-                    <h3 class="mt-6 text-base font-bold text-slate-900 font-outfit">Proses API Real-Time</h3>
-                    <p class="mt-2 text-xs leading-relaxed text-slate-500 max-w-xs">Laravel mengirim data form ke REST API FastAPI secara aman, memproses input lewat model Random Forest dan K-Means.</p>
+                    <h3 class="mt-6 text-base font-bold text-slate-900 font-outfit">Proses Machine Learning</h3>
+                    <p class="mt-2 text-xs leading-relaxed text-slate-500 max-w-xs">Sistem menganalisis data hara dan kondisi lingkungan secara aman menggunakan model Random Forest dan K-Means.</p>
                 </div>
-                <div class="flex flex-col items-center text-center">
+                <!-- Step 03 -->
+                <div class="flex flex-col items-center text-center group">
                     <div class="relative">
-                        <span class="absolute top-1/2 right-full mr-2.5 -translate-y-1/2 text-4xl font-extrabold text-slate-200/80 font-outfit sm:text-5xl">03</span>
-                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50"><i class="hgi-stroke hgi-analytics-01"></i></div>
+                        <span class="absolute top-1/2 right-full mr-2 -translate-y-1/2 text-4xl font-black text-slate-400 sm:mr-3 sm:text-5xl font-outfit select-none transition-colors duration-300 group-hover:text-emerald-500">
+                            03
+                        </span>
+                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 border border-emerald-100/50 text-emerald-600 sm:w-16 sm:h-16 transition-all duration-300 group-hover:bg-emerald-100 group-hover:scale-105 shadow-sm">
+                            <i class="hgi-stroke hgi-analytics-01 text-emerald-600 text-xl sm:text-2xl"></i>
+                        </div>
                     </div>
                     <h3 class="mt-6 text-base font-bold text-slate-900 font-outfit">Dapatkan Hasil & Rekomendasi</h3>
                     <p class="mt-2 text-xs leading-relaxed text-slate-500 max-w-xs">Simpan riwayat dan dapatkan varietas tanaman terbaik beserta pemetaan tipe kondisi lahan secara visual di dasbor.</p>
@@ -326,12 +365,12 @@
 
                 <div class="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
                     @if (Route::has('login') && Auth::check())
-                        <a href="{{ url('/dashboard') }}" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-1 active:translate-y-0 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-md shadow-emerald-600/10">
+                        <a href="{{ url('/dashboard') }}" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-0.5 active:translate-y-0 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md shadow-emerald-600/10">
                             Buka Dashboard <i class="hgi-stroke hgi-analytics-01 ml-1 text-sm"></i>
                         </a>
                     @else
-                        <a href="#" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-1 active:translate-y-0 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-md shadow-emerald-600/10" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
-                            Mulai Sekarang <i class="hgi-stroke hgi-arrow-right-01 ml-1 text-sm"></i>
+                        <a href="#" class="flex justify-center items-center bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-0.5 active:translate-y-0 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md shadow-emerald-600/10" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
+                            Mulai Sekarang
                         </a>
                     @endif
                 </div>
