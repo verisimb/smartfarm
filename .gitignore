@@ -1,0 +1,18 @@
+# Python
+ml-service/venv/
+ml-service/__pycache__/
+ml-service/*.pyc
+
+# Laravel (dalam subfolder)
+smartfarm-laravel/.env
+smartfarm-laravel/storage/*.key
+smartfarm-laravel/vendor/
+smartfarm-laravel/node_modules/
+smartfarm-laravel/public/build/
+smartfarm-laravel/public/storage
+smartfarm-laravel/.phpunit.result.cache
+smartfarm-laravel/bootstrap/cache/*
+
+# OS Files
+.DS_Store
+Thumbs.db
