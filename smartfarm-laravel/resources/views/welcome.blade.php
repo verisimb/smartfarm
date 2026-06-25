@@ -70,7 +70,7 @@
                 <span class="mb-4 inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200/50 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-700 shadow-sm">
                     ✨ Model Random Forest & K-Means
                 </span>
-                <h1 class="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-outfit text-slate-900 leading-tight">
+                <h1 class="max-w-5xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-outfit text-slate-900 leading-tight">
                     <span class="block">Optimalkan Hasil Lahan dengan</span>
                     <span class="font-serif font-normal italic text-emerald-600">
                         Keputusan yang Objektif
