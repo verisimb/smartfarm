@@ -15,22 +15,22 @@
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-50/80 border-b border-slate-200 py-4">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-2 text-2xl font-extrabold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">
+            <a href="#" class="flex items-center gap-2 text-2xl font-extrabold text-emerald-600">
                 <span class="text-3xl">🌿</span> SmartFarm
             </a>
             <div class="flex items-center gap-4">
                 @if (Route::has('login'))
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:scale-105 shadow-md shadow-emerald-500/10 text-white px-6 py-2.5 rounded-full font-semibold transition-all">Dashboard</a>
+                        <a href="{{ url('/dashboard') }}" class="bg-emerald-600 hover:bg-emerald-700 hover:scale-105 shadow-md shadow-emerald-500/10 text-white px-6 py-2.5 rounded-full font-semibold transition-all">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="text-slate-600 hover:text-emerald-500 font-semibold transition-all">Masuk</a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:scale-105 shadow-md shadow-emerald-500/10 text-white px-6 py-2.5 rounded-full font-semibold transition-all">Daftar</a>
+                            <a href="{{ route('register') }}" class="bg-emerald-600 hover:bg-emerald-700 hover:scale-105 shadow-md shadow-emerald-500/10 text-white px-6 py-2.5 rounded-full font-semibold transition-all">Daftar</a>
                         @endif
                     @endauth
                 @else
                     <a href="#" class="border-2 border-emerald-500 text-emerald-500 hover:bg-emerald-50 px-6 py-2.5 rounded-full font-semibold transition-all" onclick="alert('Halaman Login & Register akan tersedia setelah implementasi Laravel Breeze oleh Arisada.')">Masuk</a>
-                    <a href="#" class="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:scale-105 shadow-md shadow-emerald-500/10 text-white px-6 py-2.5 rounded-full font-semibold transition-all" onclick="alert('Halaman Login & Register akan tersedia setelah implementasi Laravel Breeze oleh Arisada.')">Daftar</a>
+                    <a href="#" class="bg-emerald-600 hover:bg-emerald-700 hover:scale-105 shadow-md shadow-emerald-500/10 text-white px-6 py-2.5 rounded-full font-semibold transition-all" onclick="alert('Halaman Login & Register akan tersedia setelah implementasi Laravel Breeze oleh Arisada.')">Daftar</a>
                 @endif
             </div>
         </div>
@@ -46,12 +46,12 @@
         </span>
         <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight font-outfit">
             Optimalkan Lahan Anda dengan <br>
-            <span class="bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">SmartFarm Decision Support</span>
+            <span class="text-emerald-600">SmartFarm Decision Support</span>
         </h1>
         <p class="text-base md:text-lg text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
             Dapatkan rekomendasi varietas tanaman terbaik dan analisis segmentasi kondisi tanah secara instan menggunakan teknologi Random Forest dan K-Means Clustering.
         </p>
-        <a href="#" class="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all shadow-md shadow-emerald-500/10 inline-block" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
+        <a href="#" class="bg-emerald-600 hover:bg-emerald-700 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all shadow-md shadow-emerald-500/10 inline-block" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
             Mulai Prediksi Sekarang
         </a>
     </header>
@@ -67,7 +67,7 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Card 1: Random Forest -->
                 <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:border-emerald-500/20 hover:-translate-y-1 transition-all relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-all"></div>
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-emerald-500 opacity-0 group-hover:opacity-100 transition-all"></div>
                     <div class="w-14 h-14 rounded-2xl bg-emerald-100/50 text-emerald-600 flex items-center justify-center text-2xl mb-6">🌳</div>
                     <h3 class="text-xl font-bold font-outfit text-slate-900 mb-4">Random Forest Classifier</h3>
                     <p class="text-slate-500 mb-6 text-sm leading-relaxed">Digunakan untuk memprediksi rekomendasi jenis tanaman terbaik yang paling optimal untuk ditanam.</p>
@@ -81,7 +81,7 @@
 
                 <!-- Card 2: K-Means Clustering -->
                 <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:border-emerald-500/20 hover:-translate-y-1 transition-all relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-all"></div>
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-emerald-500 opacity-0 group-hover:opacity-100 transition-all"></div>
                     <div class="w-14 h-14 rounded-2xl bg-cyan-100/50 text-cyan-600 flex items-center justify-center text-2xl mb-6">📊</div>
                     <h3 class="text-xl font-bold font-outfit text-slate-900 mb-4">K-Means Land Clustering</h3>
                     <p class="text-slate-500 mb-6 text-sm leading-relaxed">Digunakan untuk melakukan segmentasi dan kategorisasi jenis kondisi fisik lahan pertanian Anda.</p>
