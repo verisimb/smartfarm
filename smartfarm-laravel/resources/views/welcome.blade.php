@@ -65,7 +65,7 @@
     <!-- Hero Section -->
     <section class="relative overflow-hidden">
         <!-- Radial gradient background glow -->
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--color-emerald-100/30),_transparent_70%)]" style="background-color: var(--color-slate-50);"></div>
+        <div class="absolute inset-0 -z-10 bg-slate-50" style="background-image: radial-gradient(ellipse at top, rgba(167, 243, 208, 0.3), transparent 70%);"></div>
         
         <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
             <div class="flex flex-col items-center text-center">
