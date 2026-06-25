@@ -80,11 +80,11 @@ gantt
 *   **Waktu**: Dimulai setelah **Fase 3 selesai** (Arisada sudah mengunggah integrasi API & store/update ke Git).
 *   **Deskripsi**: Rama mengelola logika pengambilan dan penghapusan data riwayat prediksi di database.
 *   **Daftar Tugas (Checklist)**:
-    *   [ ] Menarik (*pull*) repository Git terbaru.
-    *   [ ] Mengisi logika method `index()` pada controller untuk mengambil riwayat prediksi milik user yang sedang login (`LandPrediction::where('user_id', auth()->id())->latest()->get()`).
-    *   [ ] Mengisi logika method `show($id)` untuk menampilkan detail data input & output dari satu riwayat.
-    *   [ ] Mengisi logika method `destroy($id)` untuk menghapus riwayat prediksi tertentu (`$prediction->delete()`).
-    *   [ ] Melakukan *push* perubahan ke Git.
+    *   [x] Menarik (*pull*) repository Git terbaru.
+    *   [x] Mengisi logika method `index()` pada controller untuk mengambil riwayat prediksi milik user yang sedang login (`LandPrediction::where('user_id', auth()->id())->latest()->get()`).
+    *   [x] Mengisi logika method `show($id)` untuk menampilkan detail data input & output dari satu riwayat.
+    *   [x] Mengisi logika method `destroy($id)` untuk menghapus riwayat prediksi tertentu (`$prediction->delete()`).
+    *   [x] Melakukan *push* perubahan ke Git.
 
 ---
 
