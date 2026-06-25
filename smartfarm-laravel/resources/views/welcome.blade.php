@@ -71,7 +71,7 @@
                     ✨ Model Random Forest & K-Means
                 </span>
                 <h1 class="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-outfit text-slate-900 leading-tight">
-                    Optimalkan Hasil Lahan dengan
+                    <span class="block">Optimalkan Hasil Lahan dengan</span>
                     <span class="font-serif font-normal italic text-emerald-600">
                         Keputusan yang Objektif
                     </span>
