@@ -46,14 +46,14 @@ gantt
 *   **Waktu**: Dimulai setelah **Fase 1 selesai** (Very sudah melakukan push code inisiasi ke Git).
 *   **Deskripsi**: Ayu bertugas menyalin kode boilerplate database dan route dari `plan.md` ke dalam project Laravel. Tugas ini sangat sederhana karena tinggal menyalin template kode yang sudah ada.
 *   **Daftar Tugas (Checklist)**:
-    *   [ ] Menarik (*pull*) repository Git terbaru dari Very.
-    *   [ ] Mengonfigurasi file `.env` untuk menghubungkan ke MySQL database lokal.
-    *   [ ] Membuat file migration untuk tabel `land_predictions` dengan menyalin (*copy-paste*) kode skema database dari `plan.md` (baris 274-291).
-    *   [ ] Menjalankan perintah migration (`php artisan migrate`).
-    *   [ ] Membuat Eloquent Model `LandPrediction` dan menyalin kode fillable & relasi user dari `plan.md` (baris 304-327).
-    *   [ ] Menambahkan fungsi relasi `landPredictions()` pada file `User.php` dengan menyalin kode dari `plan.md` (baris 329-336).
-    *   [ ] Menyalin daftar route web yang sudah terdefinisi dari `plan.md` (baris 359-369) ke dalam file `routes/web.php`.
-    *   [ ] Melakukan *push* perubahan ke Git.
+    *   [x] Menarik (*pull*) repository Git terbaru dari Very.
+    *   [x] Mengonfigurasi file `.env` untuk menghubungkan ke MySQL database lokal.
+    *   [x] Membuat file migration untuk tabel `land_predictions` dengan menyalin (*copy-paste*) kode skema database dari `plan.md` (baris 274-291).
+    *   [x] Menjalankan perintah migration (`php artisan migrate`).
+    *   [x] Membuat Eloquent Model `LandPrediction` dan menyalin kode fillable & relasi user dari `plan.md` (baris 304-327).
+    *   [x] Menambahkan fungsi relasi `landPredictions()` pada file `User.php` dengan menyalin kode dari `plan.md` (baris 329-336).
+    *   [x] Menyalin daftar route web yang sudah terdefinisi dari `plan.md` (baris 359-369) ke dalam file `routes/web.php`.
+    *   [x] Melakukan *push* perubahan ke Git.
 
 ---
 
