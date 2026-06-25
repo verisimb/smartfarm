@@ -29,4 +29,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Relasi ke data land predictions (Tugas Fase 2 Ayu)
+     */
+    public function landPredictions()
+    {
+        return $this->hasMany(LandPrediction::class);
+    }
 }
