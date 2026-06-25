@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Hugeicons Free Icon Font CDN -->
+    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-emerald-500 selection:text-white">
 
@@ -17,7 +19,7 @@
     <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
         <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
             <a href="#" class="flex items-center gap-2.5 text-2xl font-extrabold text-slate-900 tracking-tight group">
-                <span class="text-3xl transition-transform duration-300 group-hover:rotate-12">🌿</span>
+                <i class="hgi-stroke hgi-leaf-01 text-2xl text-emerald-600 transition-transform duration-300 group-hover:rotate-12"></i>
                 <span class="font-outfit text-emerald-600">Smart<span class="text-slate-900">Farm</span></span>
             </a>
             
@@ -68,7 +70,7 @@
         <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
             <div class="flex flex-col items-center text-center">
                 <span class="mb-4 inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200/50 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-700 shadow-sm">
-                    ✨ Model Random Forest & K-Means
+                    <i class="hgi-stroke hgi-sparkles text-emerald-600"></i> Model Random Forest & K-Means
                 </span>
                 <h1 class="max-w-5xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-outfit text-slate-900 leading-tight">
                     <span class="block">Optimalkan Hasil Lahan dengan</span>
@@ -82,11 +84,11 @@
                 <div class="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
                     @if (Route::has('login') && Auth::check())
                         <a href="{{ url('/dashboard') }}" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-1 active:translate-y-0 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-md shadow-emerald-600/10">
-                            Buka Dashboard 📊
+                            Buka Dashboard <i class="hgi-stroke hgi-analytics-01 ml-1 text-sm"></i>
                         </a>
                     @else
                         <a href="#" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-1 active:translate-y-0 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-md shadow-emerald-600/10" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
-                            Mulai Sekarang ➜
+                            Mulai Sekarang <i class="hgi-stroke hgi-arrow-right-01 ml-1 text-sm"></i>
                         </a>
                         <a href="#" class="flex justify-center items-center border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-sm" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
                             Masuk
@@ -124,20 +126,20 @@
                         <!-- Sidebar Mockup -->
                         <aside class="flex w-14 shrink-0 flex-col border-r border-slate-200 bg-slate-50/50 p-2 sm:w-44">
                             <div class="flex items-center gap-2 px-2 py-3">
-                                <span class="text-xl">🌿</span>
+                                <i class="hgi-stroke hgi-leaf-01 text-emerald-600 text-base"></i>
                                 <span class="hidden font-outfit font-bold text-emerald-600 sm:inline text-sm">SmartFarm</span>
                             </div>
                             <nav class="mt-4 space-y-1.5">
                                 <div class="flex items-center gap-2 rounded-lg bg-emerald-50 px-2 py-2 text-emerald-600 font-medium text-xs">
-                                    <span class="text-base">📊</span>
+                                    <i class="hgi-stroke hgi-analytics-01 text-sm shrink-0"></i>
                                     <span class="hidden sm:inline">Dashboard</span>
                                 </div>
                                 <div class="flex items-center gap-2 rounded-lg px-2 py-2 text-slate-500 hover:bg-slate-100 text-xs transition-colors">
-                                    <span class="text-base">🧪</span>
+                                    <i class="hgi-stroke hgi-test-tube text-sm shrink-0"></i>
                                     <span class="hidden sm:inline">Prediksi Baru</span>
                                 </div>
                                 <div class="flex items-center gap-2 rounded-lg px-2 py-2 text-slate-500 hover:bg-slate-100 text-xs transition-colors">
-                                    <span class="text-base">📜</span>
+                                    <i class="hgi-stroke hgi-note text-sm shrink-0"></i>
                                     <span class="hidden sm:inline">Riwayat Lahan</span>
                                 </div>
                             </nav>
@@ -153,17 +155,17 @@
                             <!-- Stat Grid -->
                             <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-4">
                                 <div class="rounded-xl border border-slate-100 bg-slate-50/50 p-2 sm:p-4">
-                                    <span class="text-lg">🧪</span>
+                                    <i class="hgi-stroke hgi-test-tube text-emerald-600 text-base"></i>
                                     <div class="text-xs font-bold text-slate-900 mt-2 sm:text-lg">18</div>
                                     <div class="text-[8px] text-slate-400 sm:text-xs">Total Prediksi</div>
                                 </div>
                                 <div class="rounded-xl border border-slate-100 bg-slate-50/50 p-2 sm:p-4">
-                                    <span class="text-lg">🌾</span>
+                                    <i class="hgi-stroke hgi-sprout text-emerald-600 text-base"></i>
                                     <div class="text-xs font-bold text-slate-900 mt-2 sm:text-lg">Padi</div>
                                     <div class="text-[8px] text-slate-400 sm:text-xs">Rekomendasi Terakhir</div>
                                 </div>
                                 <div class="rounded-xl border border-slate-100 bg-slate-50/50 p-2 sm:p-4">
-                                    <span class="text-lg">⛰️</span>
+                                    <i class="hgi-stroke hgi-mountain text-emerald-600 text-base"></i>
                                     <div class="text-xs font-bold text-slate-900 mt-2 sm:text-lg">Wet Land</div>
                                     <div class="text-[8px] text-slate-400 sm:text-xs">Tipe Lahan Utama</div>
                                 </div>
@@ -231,22 +233,22 @@
             <!-- Features Grid -->
             <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-md">
-                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50">🌾</div>
+                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-sprout"></i></div>
                     <h3 class="mt-4 text-base font-bold text-slate-900 font-outfit">Rekomendasi Tanaman</h3>
                     <p class="mt-2 text-xs leading-relaxed text-slate-500">Menganalisis keseimbangan unsur hara tanah menggunakan Random Forest demi kecocokan benih tanaman yang optimal.</p>
                 </div>
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-md">
-                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50">⛰️</div>
+                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-mountain"></i></div>
                     <h3 class="mt-4 text-base font-bold text-slate-900 font-outfit">Segmentasi Lahan</h3>
                     <p class="mt-2 text-xs leading-relaxed text-slate-500">Mengkategorikan jenis lahan Anda menggunakan model K-Means untuk pemeliharaan tanah yang spesifik.</p>
                 </div>
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-md">
-                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50">📜</div>
+                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-note"></i></div>
                     <h3 class="mt-4 text-base font-bold text-slate-900 font-outfit">Riwayat Historis</h3>
                     <p class="mt-2 text-xs leading-relaxed text-slate-500">Menyimpan dan mencatat seluruh hasil pengujian hara tanah Anda untuk melihat perkembangan kualitas lahan secara berkala.</p>
                 </div>
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-md">
-                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50">🛠️</div>
+                    <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-wrench"></i></div>
                     <h3 class="mt-4 text-base font-bold text-slate-900 font-outfit">Manajemen Data</h3>
                     <p class="mt-2 text-xs leading-relaxed text-slate-500">Edit parameter lahan dan jalankan prediksi ulang secara instan tanpa perlu mendaftar ulang dari awal.</p>
                 </div>
@@ -274,7 +276,7 @@
                 <div class="flex flex-col items-center text-center">
                     <div class="relative">
                         <span class="absolute top-1/2 right-full mr-2.5 -translate-y-1/2 text-4xl font-extrabold text-slate-200/80 font-outfit sm:text-5xl">01</span>
-                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50">🧪</div>
+                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50"><i class="hgi-stroke hgi-test-tube"></i></div>
                     </div>
                     <h3 class="mt-6 text-base font-bold text-slate-900 font-outfit">Atur Input Lahan</h3>
                     <p class="mt-2 text-xs leading-relaxed text-slate-500 max-w-xs">Isi formulir dengan parameter hara N, P, K serta kondisi lingkungan seperti suhu, kelembaban, pH, dan curah hujan.</p>
@@ -282,7 +284,7 @@
                 <div class="flex flex-col items-center text-center">
                     <div class="relative">
                         <span class="absolute top-1/2 right-full mr-2.5 -translate-y-1/2 text-4xl font-extrabold text-slate-200/80 font-outfit sm:text-5xl">02</span>
-                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50">⚙️</div>
+                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50"><i class="hgi-stroke hgi-settings-01"></i></div>
                     </div>
                     <h3 class="mt-6 text-base font-bold text-slate-900 font-outfit">Proses API Real-Time</h3>
                     <p class="mt-2 text-xs leading-relaxed text-slate-500 max-w-xs">Laravel mengirim data form ke REST API FastAPI secara aman, memproses input lewat model Random Forest dan K-Means.</p>
@@ -290,7 +292,7 @@
                 <div class="flex flex-col items-center text-center">
                     <div class="relative">
                         <span class="absolute top-1/2 right-full mr-2.5 -translate-y-1/2 text-4xl font-extrabold text-slate-200/80 font-outfit sm:text-5xl">03</span>
-                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50">📊</div>
+                        <div class="flex w-14 h-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100/50"><i class="hgi-stroke hgi-analytics-01"></i></div>
                     </div>
                     <h3 class="mt-6 text-base font-bold text-slate-900 font-outfit">Dapatkan Hasil & Rekomendasi</h3>
                     <p class="mt-2 text-xs leading-relaxed text-slate-500 max-w-xs">Simpan riwayat dan dapatkan varietas tanaman terbaik beserta pemetaan tipe kondisi lahan secara visual di dasbor.</p>
@@ -312,24 +314,24 @@
                 
                 <ul class="mt-6 flex flex-col gap-2 text-xs text-slate-500 sm:flex-row sm:gap-6 sm:text-sm">
                     <li class="flex items-center justify-center gap-1.5">
-                        <span class="text-emerald-500 font-bold">✓</span> Analisis Real-Time
+                        <i class="hgi-stroke hgi-checkmark-circle-01 text-emerald-500 text-sm"></i> Analisis Real-Time
                     </li>
                     <li class="flex items-center justify-center gap-1.5">
-                        <span class="text-emerald-500 font-bold">✓</span> Hasil Akurat & Teruji
+                        <i class="hgi-stroke hgi-checkmark-circle-01 text-emerald-500 text-sm"></i> Hasil Akurat & Teruji
                     </li>
                     <li class="flex items-center justify-center gap-1.5">
-                        <span class="text-emerald-500 font-bold">✓</span> Kemudahan Akses
+                        <i class="hgi-stroke hgi-checkmark-circle-01 text-emerald-500 text-sm"></i> Kemudahan Akses
                     </li>
                 </ul>
 
                 <div class="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
                     @if (Route::has('login') && Auth::check())
                         <a href="{{ url('/dashboard') }}" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-1 active:translate-y-0 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-md shadow-emerald-600/10">
-                            Buka Dashboard 📊
+                            Buka Dashboard <i class="hgi-stroke hgi-analytics-01 ml-1 text-sm"></i>
                         </a>
                     @else
                         <a href="#" class="flex justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-1 active:translate-y-0 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-md shadow-emerald-600/10" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
-                            Mulai Sekarang ➜
+                            Mulai Sekarang <i class="hgi-stroke hgi-arrow-right-01 ml-1 text-sm"></i>
                         </a>
                     @endif
                 </div>
@@ -343,7 +345,7 @@
             <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
                 <div class="col-span-2 md:col-span-2">
                     <a href="#" class="flex items-center gap-2 text-xl font-extrabold text-slate-900 tracking-tight">
-                        <span>🌿</span> SmartFarm
+                        <i class="hgi-stroke hgi-leaf-01 text-emerald-600"></i> SmartFarm
                     </a>
                     <p class="mt-3 max-w-sm text-sm leading-relaxed text-slate-500">
                         Sistem Pendukung Keputusan optimasi varietas benih dan pengelompokan lahan pertanian berbasis Random Forest dan K-Means.
