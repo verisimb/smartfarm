@@ -62,16 +62,16 @@ gantt
 *   **Waktu**: Dimulai setelah **Fase 2 selesai** (Ayu sudah menyelesaikan migrasi database dan routing).
 *   **Deskripsi**: Arisada memasang sistem login/register, menyiapkan logika controller untuk proses input data, serta menembakkan data tersebut ke API FastAPI menggunakan HTTP Client Laravel.
 *   **Daftar Tugas (Checklist)**:
-    *   [ ] Menarik (*pull*) repository Git terbaru.
-    *   [ ] Menginstal dan mengonfigurasi Laravel Breeze untuk otentikasi user (Login, Register, Logout).
-    *   [ ] Membuat controller `LandPredictionController` dengan method lengkap (`dashboard`, `index`, `create`, `store`, `show`, `edit`, `update`, `destroy`).
-    *   [ ] Menulis logika pada method `dashboard()` di controller untuk menghitung ringkasan data user (total prediksi, prediksi terbaru, dan tanaman terakhir yang direkomendasikan).
-    *   [ ] Menulis aturan validasi form input pada method `store()` dan `update()` sesuai spesifikasi (memastikan tipe data numerik dan bernilai positif).
-    *   [ ] Menambahkan setting `FASTAPI_URL` ke dalam `.env` dan mendaftarkannya di `config/services.php`.
-    *   [ ] Menggunakan Laravel HTTP Client (`Http::post`) pada method `store()` dan `update()` untuk mengirim data input ke FastAPI dan menangkap hasilnya (recommended_crop, cluster, land_type).
-    *   [ ] Menyimpan data gabungan (input form + hasil prediksi) ke database MySQL.
-    *   [ ] Menambahkan penanganan error (*graceful fallback*) jika API FastAPI mati.
-    *   [ ] Melakukan *push* perubahan ke Git.
+    *   [x] Menarik (*pull*) repository Git terbaru.
+    *   [x] Menginstal dan mengonfigurasi Laravel Breeze untuk otentikasi user (Login, Register, Logout).
+    *   [x] Membuat controller `LandPredictionController` dengan method lengkap (`dashboard`, `index`, `create`, `store`, `show`, `edit`, `update`, `destroy`).
+    *   [x] Menulis logika pada method `dashboard()` di controller untuk menghitung ringkasan data user (total prediksi, prediksi terbaru, dan tanaman terakhir yang direkomendasikan).
+    *   [x] Menulis aturan validasi form input pada method `store()` dan `update()` sesuai spesifikasi (memastikan tipe data numerik dan bernilai positif).
+    *   [x] Menambahkan setting `FASTAPI_URL` ke dalam `.env` dan mendaftarkannya di `config/services.php`.
+    *   [x] Menggunakan Laravel HTTP Client (`Http::post`) pada method `store()` dan `update()` untuk mengirim data input ke FastAPI dan menangkap hasilnya (recommended_crop, cluster, land_type).
+    *   [x] Menyimpan data gabungan (input form + hasil prediksi) ke database MySQL.
+    *   [x] Menambahkan penanganan error (*graceful fallback*) jika API FastAPI mati.
+    *   [x] Melakukan *push* perubahan ke Git.
 
 ---
 
