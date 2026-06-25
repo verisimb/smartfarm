@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -221,7 +221,7 @@
                     Fitur Utama
                 </span>
                 <h2 class="font-serif text-3xl md:text-4xl tracking-tight italic text-slate-900 font-normal">
-                    Optimasi Pertanian dengan <span class="text-emerald-600 font-semibold not-italic font-outfit">Satu Dasbor Terintegrasi</span>
+                    Semua yang Anda Butuhkan
                 </h2>
                 <p class="mt-4 max-w-2xl text-sm sm:text-base text-slate-500 leading-relaxed">
                     SmartFarm menyediakan alur lengkap dari pengumpulan parameter fisik lahan hingga visualisasi rekomendasi akhir untuk petani.
@@ -262,7 +262,7 @@
                     Cara Kerja
                 </span>
                 <h2 class="font-serif text-3xl md:text-4xl tracking-tight italic text-slate-900 font-normal">
-                    Tiga Langkah Mudah <span class="text-emerald-600 font-semibold not-italic font-outfit">Menganalisis Tanah</span>
+                    Tiga Langkah Mudah
                 </h2>
                 <p class="mt-4 max-w-2xl text-sm sm:text-base text-slate-500 leading-relaxed">
                     Alur sistem terpadu dari pengumpulan data lingkungan hingga penerimaan respon hasil analisis keputusan.
