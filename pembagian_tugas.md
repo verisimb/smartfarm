@@ -110,6 +110,9 @@ Untuk menjaga kualitas estetika dan keseragaman tampilan aplikasi SmartFarm, sel
 1. **Framework & Konfigurasi CSS**:
    - Aplikasi menggunakan **Tailwind CSS v4** dengan integrasi `@tailwindcss/vite`.
    - Seluruh kustomisasi tema dilakukan di file `resources/css/app.css` pada direktori `@theme` (bukan menggunakan file `tailwind.config.js` lama).
+   - **DILARANG MERUSAK / DOWNGRADE DEPENDENSI CSS**: Ketika menginstal paket baru (misal: Laravel Breeze di Fase 3), pastikan versi `tailwindcss` di `package.json` tidak diturunkan (downgrade) ke versi `^3.1.0`. 
+   - **TIDAK BOLEH MENIMPA app.css**: Jangan menimpa berkas `resources/css/app.css` kustom dengan format direktif Tailwind v3 (`@tailwind base;` dll.). Jika berkas tertimpa secara otomatis oleh Breeze, segera kembalikan ke konfigurasi `@import 'tailwindcss';` dan `@theme` kustom.
+   - **DILARANG MENGGUNAKAN KONFIGURASI LAMA**: Jangan menggunakan/menambahkan berkas `tailwind.config.js` dan `postcss.config.js` ke dalam proyek karena akan bentrok dengan compiler Tailwind v4 di Vite. Jika berkas tersebut ter-generate otomatis, silakan langsung dihapus.
 
 2. **Skema Warna Pertanian Modern (Fresh Green)**:
    - Warna hijau utama disepakati adalah **`#BAD284`** (di-map ke kelas `emerald-500` di `app.css`).

@@ -34,13 +34,25 @@ Sebelum menjalankan project, pastikan perangkat Anda telah terinstal:
 - **PHP** (minimal v8.2) & **Composer**
 - **Node.js** & **NPM** (minimal v18)
 - **Python** (minimal v3.9) & **pip / virtualenv**
-- **MySQL** Database Server (XAMPP / Laragon / Local MySQL)
+- **MySQL** Database Server (Laragon / XAMPP / Local MySQL) -> *Pastikan server database ini (terutama Laragon) sudah dijalankan/Running.*
 
 ---
 
 ## 🚀 Panduan Menjalankan Project
 
 Ikuti langkah-langkah di bawah ini secara berurutan untuk menjalankan kedua layanan di lokal komputer Anda:
+
+### Bagian 0: Clone Repositori
+
+1. Clone repositori ini ke komputer lokal Anda:
+   ```bash
+   git clone https://github.com/verisimb/smartfarm.git
+   ```
+
+2. Masuk ke dalam direktori project utama:
+   ```bash
+   cd smartfarm
+   ```
 
 ### Bagian 1: Setup & Jalankan FastAPI ML Service
 
@@ -117,7 +129,7 @@ Ikuti langkah-langkah di bawah ini secara berurutan untuk menjalankan kedua laya
      FASTAPI_URL=http://127.0.0.1:8001
      ```
 
-6. Buat database baru bernama `smartfarm` di phpMyAdmin atau MySQL Client Anda.
+6. Pastikan server database lokal Anda (**Laragon** / XAMPP) sudah dalam keadaan berjalan (*Start All*). Kemudian, buat database baru bernama `smartfarm` melalui phpMyAdmin atau MySQL Client pilihan Anda.
 
 7. Jalankan migrasi tabel database (Akan dikerjakan oleh **Ayu** di Fase 2):
    ```bash

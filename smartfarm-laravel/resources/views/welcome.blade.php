@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartFarm - Rekomendasi Tanaman & Segmentasi Lahan</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('LogoOnly.svg') }}">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +20,8 @@
     <!-- Navigation Header -->
     <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
         <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-            <a href="#" class="flex items-center gap-2.5 text-2xl font-extrabold text-slate-900 tracking-tight group">
-                <i class="hgi-stroke hgi-leaf-01 text-2xl text-emerald-600 transition-transform duration-300 group-hover:rotate-12"></i>
-                <span class="font-outfit text-emerald-600">Smart<span class="text-slate-900">Farm</span></span>
+            <a href="#" class="flex items-center gap-2.5 group">
+                <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
             </a>
             
             <!-- Shortcut Nav Links -->
@@ -64,8 +65,7 @@
 
     <!-- Hero Section -->
     <section class="relative overflow-hidden">
-        <!-- Radial gradient background glow -->
-        <div class="absolute inset-0 -z-10 bg-slate-50" style="background-image: radial-gradient(ellipse at top, rgba(167, 243, 208, 0.3), transparent 70%);"></div>
+
         
         <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
             <div class="flex flex-col items-center text-center">
@@ -383,8 +383,8 @@
         <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
             <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
                 <div class="col-span-2 md:col-span-2">
-                    <a href="#" class="flex items-center gap-2 text-xl font-extrabold text-slate-900 tracking-tight">
-                        <i class="hgi-stroke hgi-leaf-01 text-emerald-600"></i> SmartFarm
+                    <a href="#" class="flex items-center gap-2">
+                        <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-7 w-auto" />
                     </a>
                     <p class="mt-3 max-w-sm text-sm leading-relaxed text-slate-500">
                         Sistem Pendukung Keputusan optimasi varietas benih dan pengelompokan lahan pertanian berbasis Random Forest dan K-Means.
