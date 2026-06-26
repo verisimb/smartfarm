@@ -2,7 +2,7 @@
 set -e
 
 # Link the storage directory if it doesn't exist
-php artisan storage:link --exist-ok || true
+php artisan storage:link || true
 
 # Run package discovery (since skipped during build time)
 echo "Running package discovery..."
