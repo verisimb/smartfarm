@@ -67,7 +67,17 @@
     <section class="relative overflow-hidden">
 
         
-        <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+        <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32 relative">
+            <!-- Floating Leaf Illustration -->
+            <div class="hidden md:block absolute left-0 md:left-2 lg:left-0 xl:-left-2 top-[53%] -translate-y-1/2 z-10 pointer-events-none select-none">
+                <img src="{{ asset('leaf.png') }}" alt="Leaf Illustration" class="w-[72px] lg:w-[100px] h-auto object-contain" style="transform: rotate(-40deg);" />
+            </div>
+
+            <!-- Floating Vegetables Illustration -->
+            <div class="hidden md:block absolute right-0 md:-right-3 lg:-right-8 xl:-right-10 top-[42%] -translate-y-1/2 z-10 pointer-events-none select-none">
+                <img src="{{ asset('vegetables.png') }}" alt="Vegetables Illustration" class="w-[72px] lg:w-[100px] h-auto object-contain" />
+            </div>
+
             <div class="flex flex-col items-center text-center">
                 <span class="mb-4 inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200/50 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-700 shadow-sm">
                     <i class="hgi-stroke hgi-sparkles text-emerald-600"></i> Model Random Forest & K-Means
