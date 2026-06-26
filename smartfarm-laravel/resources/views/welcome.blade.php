@@ -87,10 +87,10 @@
                             Buka Dashboard <i class="hgi-stroke hgi-analytics-01 ml-1 text-sm"></i>
                         </a>
                     @else
-                        <a href="#" class="flex justify-center items-center bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-0.5 active:translate-y-0 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md shadow-emerald-600/10" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
+                        <a href="{{ route('register') }}" class="flex justify-center items-center bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-0.5 active:translate-y-0 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md shadow-emerald-600/10">
                             Mulai Sekarang
                         </a>
-                        <a href="#" class="flex justify-center items-center border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
+                        <a href="{{ route('login') }}" class="flex justify-center items-center border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-sm">
                             Masuk
                         </a>
                     @endif
@@ -401,7 +401,7 @@
                             Buka Dashboard <i class="hgi-stroke hgi-analytics-01 ml-1 text-sm"></i>
                         </a>
                     @else
-                        <a href="#" class="flex justify-center items-center bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-0.5 active:translate-y-0 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md shadow-emerald-600/10" onclick="alert('Silakan login terlebih dahulu untuk mengakses menu prediksi.')">
+                        <a href="{{ route('register') }}" class="flex justify-center items-center bg-emerald-600 hover:bg-emerald-700 hover:-translate-y-0.5 active:translate-y-0 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-md shadow-emerald-600/10">
                             Mulai Sekarang
                         </a>
                     @endif
