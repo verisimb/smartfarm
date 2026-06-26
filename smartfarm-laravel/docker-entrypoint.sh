@@ -4,6 +4,10 @@ set -e
 # Link the storage directory if it doesn't exist
 php artisan storage:link --exist-ok || true
 
+# Run package discovery (since skipped during build time)
+echo "Running package discovery..."
+php artisan package:discover --ansi
+
 # Run migrations if enabled via environment variable
 if [ "$RUN_MIGRATIONS" = "true" ]; then
     echo "Running database migrations..."
