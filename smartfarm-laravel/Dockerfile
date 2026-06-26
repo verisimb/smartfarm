@@ -12,6 +12,9 @@ FROM dunglas/frankenphp:1-php8.4-alpine
 # Set working directory
 WORKDIR /app
 
+# Set FrankenPHP server name to HTTP only to disable automatic HTTPS redirects behind reverse proxy
+ENV SERVER_NAME=http://
+
 # Install system dependencies and PHP extensions
 RUN apk add --no-cache \
     git \
