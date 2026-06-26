@@ -68,7 +68,7 @@
     <div class="relative overflow-hidden bg-slate-50">
         <!-- Background Image with Fade -->
         <div class="absolute inset-x-0 bottom-0 top-[43%] sm:top-[39%] lg:top-[35%] xl:top-[33%] pointer-events-none z-0">
-            <img src="{{ asset('4096x1645.png') }}" class="w-full h-full object-cover object-top opacity-90" />
+            <img src="{{ asset('4096x1645.webp') }}" class="w-full h-full object-cover object-top opacity-90" />
             <!-- Top Fade to blend with bg-slate-50 -->
             <div class="absolute inset-x-0 top-0 h-65 bg-linear-to-b from-slate-50 via-slate-50/40 to-transparent"></div>
         </div>
