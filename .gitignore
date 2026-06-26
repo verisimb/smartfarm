@@ -16,3 +16,7 @@ smartfarm-laravel/bootstrap/cache/*
 # OS Files
 .DS_Store
 Thumbs.db
+
+# Coolify deployment guide (ignored from repo)
+/coolify-deployment-guide.md
+
