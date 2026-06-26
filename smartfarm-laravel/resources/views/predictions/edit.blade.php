@@ -78,7 +78,7 @@
             <div class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
-                        <i class="hgi-stroke hgi-temperature-status text-xl"></i>
+                        <i class="hgi-stroke hgi-mountain text-xl"></i>
                     </div>
                     <div>
                         <h3 class="font-outfit text-lg font-bold text-slate-900">Parameter Lingkungan</h3>

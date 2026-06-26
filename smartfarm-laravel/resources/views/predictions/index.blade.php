@@ -10,7 +10,7 @@
                 <h2 class="font-outfit text-2xl font-bold text-slate-900">Data Historis Lahan</h2>
                 <p class="text-sm text-slate-500">Kelola dan pantau seluruh hasil prediksi yang pernah Anda buat.</p>
             </div>
-            <a href="{{ route('predictions.create') }}" class="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-emerald-700 hover:shadow-lg shadow-emerald-600/20 active:scale-[0.98]">
+            <a href="{{ route('predictions.create') }}" class="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-emerald-700 active:scale-[0.98]">
                 <i class="hgi-stroke hgi-plus-01"></i>
                 Analisis Baru
             </a>
@@ -24,7 +24,7 @@
         @endif
 
         <!-- Table Container -->
-        <div class="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+        <div class="rounded-3xl border border-slate-200 bg-white overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-slate-50/50 border-b border-slate-100">
@@ -77,21 +77,17 @@
                                 <td class="px-6 py-5">
                                     <div class="flex items-center justify-center gap-2">
                                         <!-- Detail Button -->
-                                        <a href="{{ route('predictions.show', $prediction->id) }}" class="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-500 transition-all hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 group/btn shadow-sm" title="Detail">
+                                        <a href="{{ route('predictions.show', $prediction->id) }}" class="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-500 transition-all hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 group/btn" title="Detail">
                                             <i class="hgi-stroke hgi-view text-lg"></i>
                                         </a>
                                         <!-- Edit Button -->
-                                        <a href="{{ route('predictions.edit', $prediction->id) }}" class="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-500 transition-all hover:bg-amber-50 hover:text-amber-600 hover:border-amber-200 shadow-sm" title="Edit">
+                                        <a href="{{ route('predictions.edit', $prediction->id) }}" class="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-500 transition-all hover:bg-amber-50 hover:text-amber-600 hover:border-amber-200" title="Edit">
                                             <i class="hgi-stroke hgi-pencil-edit-01 text-lg"></i>
                                         </a>
                                         <!-- Delete Button -->
-                                        <form action="{{ route('predictions.destroy', $prediction->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-500 transition-all hover:bg-red-50 hover:text-red-600 hover:border-red-200 shadow-sm" title="Hapus">
-                                                <i class="hgi-stroke hgi-delete-02 text-lg"></i>
-                                            </button>
-                                        </form>
+                                        <button type="button" x-data="" x-on:click.prevent="$dispatch('open-delete-modal', { action: '{{ route('predictions.destroy', $prediction->id) }}' })" class="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-500 transition-all hover:bg-red-50 hover:text-red-600 hover:border-red-200" title="Hapus">
+                                            <i class="hgi-stroke hgi-delete-02 text-lg"></i>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -104,7 +100,7 @@
                                         </div>
                                         <h3 class="font-outfit text-lg font-bold text-slate-900">Belum Ada Data Riwayat</h3>
                                         <p class="mt-1 text-sm text-slate-400 max-w-xs">Saat ini Anda belum melakukan prediksi apa pun. Mulai analisis pertama Anda sekarang!</p>
-                                        <a href="{{ route('predictions.create') }}" class="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-emerald-700 shadow-lg shadow-emerald-600/10 active:scale-[0.98]">
+                                        <a href="{{ route('predictions.create') }}" class="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-emerald-700 active:scale-[0.98]">
                                             Analisis Pertama
                                             <i class="hgi-stroke hgi-analytics-01"></i>
                                         </a>
@@ -121,4 +117,28 @@
             <p class="text-center text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-4">Akhir dari Riwayat Lahan</p>
         @endif
     </div>
+
+    <!-- Delete Confirmation Modal -->
+    <x-modal name="confirm-delete" focusable>
+        <div class="p-6" x-data="{ actionUrl: '' }" x-on:open-delete-modal.window="actionUrl = $event.detail.action; $dispatch('open-modal', 'confirm-delete')">
+            <h2 class="text-lg font-bold font-outfit text-slate-900">
+                Konfirmasi Hapus Data
+            </h2>
+            <p class="mt-2 text-sm text-slate-500">
+                Apakah Anda yakin ingin menghapus data riwayat analisis lahan ini? Skenario/laporan prediksi ini akan dihapus permanen dan tidak dapat dipulihkan kembali.
+            </p>
+            <div class="mt-6 flex justify-end gap-3">
+                <button type="button" x-on:click="$dispatch('close-modal', 'confirm-delete')" class="px-5 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-sm font-bold text-slate-500 transition-all">
+                    Batal
+                </button>
+                <form :action="actionUrl" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-sm font-bold text-white transition-all">
+                        Hapus Data
+                    </button>
+                </form>
+            </div>
+        </div>
+    </x-modal>
 </x-app-layout>

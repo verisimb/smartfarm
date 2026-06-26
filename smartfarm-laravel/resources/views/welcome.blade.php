@@ -21,7 +21,7 @@
     <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
         <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
             <a href="#" class="flex items-center gap-2.5 group">
-                <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-8 w-auto transition-transform duration-300 group-hover:scale-105" />
+                <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-8 w-auto" />
             </a>
             
             <!-- Shortcut Nav Links -->
@@ -116,97 +116,129 @@
                         </div>
                         <div class="ml-2 flex-1">
                             <div class="mx-auto h-5 max-w-xs rounded-md bg-slate-100 px-3 text-center text-[10px] leading-5 text-slate-400 select-none">
-                                smartfarm.test/dashboard
+                                smartfarm.yaelahver.dev/dashboard
                             </div>
                         </div>
                     </div>
 
                     <!-- Application Interface Mockup -->
-                    <div class="flex bg-white text-slate-800">
+                    <div class="flex bg-white text-slate-800 h-[380px] overflow-hidden">
                         <!-- Sidebar Mockup -->
-                        <aside class="flex w-14 shrink-0 flex-col border-r border-slate-200 bg-slate-50/50 p-2 sm:w-44">
-                            <div class="flex items-center gap-2 px-2 py-3">
-                                <i class="hgi-stroke hgi-leaf-01 text-emerald-600 text-base"></i>
-                                <span class="hidden font-outfit font-bold text-emerald-600 sm:inline text-sm">SmartFarm</span>
+                        <aside class="flex w-14 sm:w-44 shrink-0 flex-col border-r border-slate-200 bg-white transition-all">
+                            <!-- Sidebar Header Mockup -->
+                            <div class="flex h-12 items-center px-3 border-b border-slate-100">
+                                <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-5 w-auto hidden sm:block" />
+                                <img src="{{ asset('LogoOnly.svg') }}" alt="SmartFarm Logo" class="h-5 w-auto sm:hidden" />
                             </div>
-                            <nav class="mt-4 space-y-1.5">
-                                <div class="flex items-center gap-2 rounded-lg bg-emerald-50 px-2 py-2 text-emerald-600 font-medium text-xs">
-                                    <i class="hgi-stroke hgi-analytics-01 text-sm shrink-0"></i>
-                                    <span class="hidden sm:inline">Dashboard</span>
+                            <!-- Sidebar Menu Mockup -->
+                            <div class="flex-1 p-2 space-y-4">
+                                <div>
+                                    <span class="hidden sm:block px-2 text-[8px] font-semibold uppercase tracking-wider text-slate-400">Utama</span>
+                                    <nav class="mt-1 space-y-1">
+                                        <div class="flex items-center gap-2 rounded-lg bg-emerald-50 px-2.5 py-2 text-emerald-700 font-medium text-xs">
+                                            <i class="hgi-stroke hgi-analytics-01 text-sm shrink-0"></i>
+                                            <span class="hidden sm:inline">Dashboard</span>
+                                        </div>
+                                    </nav>
                                 </div>
-                                <div class="flex items-center gap-2 rounded-lg px-2 py-2 text-slate-500 hover:bg-slate-100 text-xs transition-colors">
-                                    <i class="hgi-stroke hgi-test-tube text-sm shrink-0"></i>
-                                    <span class="hidden sm:inline">Prediksi Baru</span>
+                                <div>
+                                    <span class="hidden sm:block px-2 text-[8px] font-semibold uppercase tracking-wider text-slate-400">Prediksi Lahan</span>
+                                    <nav class="mt-1 space-y-1">
+                                        <div class="flex items-center gap-2 rounded-lg px-2.5 py-2 text-slate-500 hover:bg-slate-50 text-xs transition-colors">
+                                            <i class="hgi-stroke hgi-test-tube text-sm shrink-0"></i>
+                                            <span class="hidden sm:inline">Prediksi Baru</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 rounded-lg px-2.5 py-2 text-slate-500 hover:bg-slate-50 text-xs transition-colors">
+                                            <i class="hgi-stroke hgi-database-01 text-sm shrink-0"></i>
+                                            <span class="hidden sm:inline">Riwayat Lahan</span>
+                                        </div>
+                                    </nav>
                                 </div>
-                                <div class="flex items-center gap-2 rounded-lg px-2 py-2 text-slate-500 hover:bg-slate-100 text-xs transition-colors">
-                                    <i class="hgi-stroke hgi-note text-sm shrink-0"></i>
-                                    <span class="hidden sm:inline">Riwayat Lahan</span>
+                            </div>
+                            <!-- Sidebar Footer Mockup -->
+                            <div class="border-t border-slate-100 p-2 mt-auto">
+                                <div class="flex items-center gap-2 rounded-lg px-2.5 py-2 text-slate-500 hover:bg-slate-50 text-xs transition-colors">
+                                    <i class="hgi-stroke hgi-user text-sm shrink-0"></i>
+                                    <span class="hidden sm:inline">Profil Saya</span>
                                 </div>
-                            </nav>
+                            </div>
                         </aside>
 
-                        <!-- Main Content Mockup -->
-                        <main class="flex-1 bg-white p-3 sm:p-6">
-                            <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
-                                <h3 class="font-outfit font-bold text-slate-900 text-sm sm:text-base">Ringkasan Lahan</h3>
-                                <span class="bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full text-[10px] font-bold">Aktif</span>
-                            </div>
-
-                            <!-- Stat Grid -->
-                            <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-4">
-                                <div class="rounded-xl border border-slate-100 bg-slate-50/50 p-2 sm:p-4">
-                                    <i class="hgi-stroke hgi-test-tube text-emerald-600 text-base"></i>
-                                    <div class="text-xs font-bold text-slate-900 mt-2 sm:text-lg">18</div>
-                                    <div class="text-[8px] text-slate-400 sm:text-xs">Total Prediksi</div>
-                                </div>
-                                <div class="rounded-xl border border-slate-100 bg-slate-50/50 p-2 sm:p-4">
-                                    <i class="hgi-stroke hgi-sprout text-emerald-600 text-base"></i>
-                                    <div class="text-xs font-bold text-slate-900 mt-2 sm:text-lg">Padi</div>
-                                    <div class="text-[8px] text-slate-400 sm:text-xs">Rekomendasi Terakhir</div>
-                                </div>
-                                <div class="rounded-xl border border-slate-100 bg-slate-50/50 p-2 sm:p-4">
-                                    <i class="hgi-stroke hgi-mountain text-emerald-600 text-base"></i>
-                                    <div class="text-xs font-bold text-slate-900 mt-2 sm:text-lg">Wet Land</div>
-                                    <div class="text-[8px] text-slate-400 sm:text-xs">Tipe Lahan Utama</div>
-                                </div>
-                            </div>
-
-                            <!-- Detail Data & Chart Mockup -->
-                            <div class="grid gap-4 lg:grid-cols-7">
-                                <!-- Table Column -->
-                                <div class="rounded-xl border border-slate-200/80 p-3 lg:col-span-4">
-                                    <div class="text-xs font-bold text-slate-900 sm:text-sm">Riwayat Prediksi Terbaru</div>
-                                    <div class="text-[8px] text-slate-400 sm:text-xs mb-3">Hasil klasifikasi & segmentasi terkini</div>
-                                    <div class="space-y-2">
-                                        <div class="flex items-center gap-2 rounded-lg border border-slate-100 p-2 bg-emerald-50/40">
-                                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                                            <span class="flex-1 truncate text-[9px] font-medium sm:text-xs text-slate-700">Lahan A - N:90 P:42 K:43</span>
-                                            <span class="rounded bg-emerald-100 px-1.5 py-0.5 text-[8px] font-medium text-emerald-700">Padi</span>
-                                        </div>
-                                        <div class="flex items-center gap-2 rounded-lg border border-slate-100 p-2">
-                                            <span class="w-2.5 h-2.5 rounded-full bg-slate-300"></span>
-                                            <span class="flex-1 truncate text-[9px] font-medium sm:text-xs text-slate-700">Lahan B - N:20 P:55 K:60</span>
-                                            <span class="rounded bg-slate-100 px-1.5 py-0.5 text-[8px] font-medium text-slate-600">Jagung</span>
-                                        </div>
+                        <!-- Main Content Container Mockup -->
+                        <div class="flex-1 flex flex-col min-w-0 bg-slate-50">
+                            <!-- Top Header Mockup -->
+                            <div class="flex h-12 shrink-0 items-center justify-between border-b border-slate-200/80 bg-white px-4">
+                                <h3 class="font-outfit font-bold text-slate-900 text-sm sm:text-base">Ringkasan Dashboard</h3>
+                                <div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 scale-90 sm:scale-100 origin-right">
+                                    <div class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold text-[9px]">
+                                        T
                                     </div>
-                                </div>
-                                <!-- Chart Column -->
-                                <div class="hidden rounded-xl border border-slate-200/80 p-3 lg:col-span-3 sm:block">
-                                    <div class="text-xs font-bold text-slate-900 sm:text-sm">Keseimbangan Hara</div>
-                                    <div class="text-[8px] text-slate-400 sm:text-xs mb-3">Rata-rata unsur N, P, K</div>
-                                    <div class="space-y-2.5">
-                                        <div class="space-y-1">
-                                            <div class="flex justify-between text-[10px] text-slate-600"><span>Nitrogen (N)</span><span>82%</span></div>
-                                            <div class="h-1.5 w-full rounded-full bg-slate-100 overflow-hidden"><div class="h-full bg-emerald-500 rounded-full" style="width: 82%"></div></div>
-                                        </div>
-                                        <div class="space-y-1">
-                                            <div class="flex justify-between text-[10px] text-slate-600"><span>Phosphorus (P)</span><span>48%</span></div>
-                                            <div class="h-1.5 w-full rounded-full bg-slate-100 overflow-hidden"><div class="h-full bg-emerald-500 rounded-full" style="width: 48%"></div></div>
-                                        </div>
+                                    <div class="hidden sm:block text-left">
+                                        <p class="text-[9px] font-bold text-slate-800 leading-none">Test User</p>
+                                        <p class="text-[7px] text-slate-500 leading-none mt-0.5">Petani Modern</p>
                                     </div>
                                 </div>
                             </div>
-                        </main>
+
+                            <!-- Body Content Mockup -->
+                            <main class="flex-1 p-4 sm:p-6 overflow-hidden">
+                                <!-- Welcome Section (Mockup) -->
+                                <div class="relative overflow-hidden rounded-2xl bg-emerald-600 p-4 text-white mb-6">
+                                    <div class="relative z-10 max-w-md">
+                                        <h4 class="font-outfit text-xs sm:text-sm font-bold">Selamat Datang Kembali, Test User!</h4>
+                                        <p class="mt-1 text-[8px] sm:text-[10px] text-emerald-50 leading-relaxed opacity-95">
+                                            Sistem SmartFarm siap membantu Anda menganalisis kondisi lahan hari ini. Pantau perkembangan unsur hara dan dapatkan rekomendasi terbaik.
+                                        </p>
+                                    </div>
+                                    <div class="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-emerald-500/30 blur-2xl"></div>
+                                    <i class="hgi-stroke hgi-sprout absolute -right-2 bottom-0 text-7xl text-emerald-500/20 rotate-12 pointer-events-none"></i>
+                                </div>
+
+                                <!-- Stat Grid -->
+                                <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-6">
+                                    <!-- Total Eksperimen Lahan -->
+                                    <div class="rounded-2xl border border-slate-200 bg-white p-3 sm:p-4">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-slate-50 text-slate-600">
+                                                <i class="hgi-stroke hgi-test-tube text-sm sm:text-lg"></i>
+                                            </div>
+                                            <span class="inline-flex items-center text-[7px] sm:text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full uppercase tracking-wider scale-75 sm:scale-100">Aktif</span>
+                                        </div>
+                                        <div class="mt-2 sm:mt-3">
+                                            <p class="font-outfit text-base sm:text-2xl font-black text-slate-900">12</p>
+                                            <p class="text-[7px] sm:text-[9px] font-semibold text-slate-400 uppercase tracking-tighter mt-0.5">Total Eksperimen</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Rekomendasi Terakhir -->
+                                    <div class="rounded-2xl border border-slate-200 bg-white p-3 sm:p-4">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-slate-50 text-slate-600">
+                                                <i class="hgi-stroke hgi-leaf-01 text-sm sm:text-lg"></i>
+                                            </div>
+                                            <span class="inline-flex items-center text-[7px] sm:text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full uppercase tracking-wider scale-75 sm:scale-100">Hasil</span>
+                                        </div>
+                                        <div class="mt-2 sm:mt-3">
+                                            <p class="font-outfit text-base sm:text-2xl font-black text-slate-900 truncate">Padi</p>
+                                            <p class="text-[7px] sm:text-[9px] font-semibold text-slate-400 uppercase tracking-tighter mt-0.5">Rekomendasi Terakhir</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Klasifikasi Lahan Terakhir -->
+                                    <div class="rounded-2xl border border-slate-200 bg-white p-3 sm:p-4">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-slate-50 text-slate-600">
+                                                <i class="hgi-stroke hgi-mountain text-sm sm:text-lg"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2 sm:mt-3">
+                                            <p class="font-outfit text-base sm:text-2xl font-black text-slate-900 truncate">Wet Land</p>
+                                            <p class="text-[7px] sm:text-[9px] font-semibold text-slate-400 uppercase tracking-tighter mt-0.5">Klasifikasi Lahan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
                     </div>
                 </div>
                 <!-- Bottom fade out effect -->

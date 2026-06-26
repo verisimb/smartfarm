@@ -28,13 +28,13 @@
             <aside class="hidden md:flex w-64 shrink-0 flex-col border-r border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 h-screen">
                 <div class="flex h-16 items-center px-6 border-b border-slate-100">
                     <a href="{{ url('/') }}" class="flex items-center gap-2.5 group">
-                        <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-7 w-auto transition-transform duration-300 group-hover:scale-105" />
+                        <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-7 w-auto" />
                     </a>
                 </div>
                 
                 <div class="flex-1 overflow-y-auto px-4 py-6">
                     <div class="mb-4">
-                        <span class="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400">Utama</span>
+                        <span class="px-3 text-[10px] font-semibold uppercase tracking-wider text-slate-400">Utama</span>
                         <nav class="mt-2 space-y-1">
                             <x-nav-link-custom :href="route('dashboard')" :active="request()->routeIs('dashboard')" icon="hgi-analytics-01">
                                 Dashboard
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <span class="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400">Prediksi Lahan</span>
+                        <span class="px-3 text-[10px] font-semibold uppercase tracking-wider text-slate-400">Prediksi Lahan</span>
                         <nav class="mt-2 space-y-1">
                             <x-nav-link-custom :href="route('predictions.create')" :active="request()->routeIs('predictions.create')" icon="hgi-test-tube">
                                 Prediksi Baru
@@ -62,13 +62,10 @@
                 </div>
 
                 <div class="p-4 border-t border-slate-100">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-500 transition-all duration-300 hover:bg-red-50 hover:text-red-600 group">
-                            <i class="hgi-stroke hgi-logout-03 text-lg transition-transform group-hover:-translate-x-1"></i>
-                            Keluar Akun
-                        </button>
-                    </form>
+                    <button type="button" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-logout')" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 hover:bg-red-50 hover:text-red-600 group">
+                        <i class="hgi-stroke hgi-logout-03 text-lg transition-transform group-hover:-translate-x-1"></i>
+                        Keluar Akun
+                    </button>
                 </div>
             </aside>
 
@@ -77,7 +74,7 @@
 
             <div class="flex-1 flex flex-col min-w-0">
                 <!-- Top Header -->
-                <header class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-slate-200 bg-white/80 px-4 shadow-sm backdrop-blur-md sm:gap-x-6 sm:px-6 lg:px-8">
+                <header class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-slate-200/80 bg-white/80 px-4 backdrop-blur-md sm:gap-x-6 sm:px-6 lg:px-8">
                     <button type="button" class="-m-2.5 p-2.5 text-slate-700 md:hidden" id="open-sidebar">
                         <span class="sr-only">Open sidebar</span>
                         <i class="hgi-stroke hgi-menu-01 text-2xl"></i>
@@ -113,6 +110,29 @@
                 </main>
             </div>
         </div>
+
+        <!-- Logout Confirmation Modal -->
+        <x-modal name="confirm-logout" focusable>
+            <div class="p-6">
+                <h2 class="text-lg font-bold font-outfit text-slate-900">
+                    Konfirmasi Keluar Akun
+                </h2>
+                <p class="mt-2 text-sm text-slate-500">
+                    Apakah Anda yakin ingin keluar dari akun Anda? Sesi Anda akan berakhir dan Anda harus masuk kembali untuk mengelola data lahan Anda.
+                </p>
+                <div class="mt-6 flex justify-end gap-3">
+                    <button type="button" x-on:click="$dispatch('close-modal', 'confirm-logout')" class="px-5 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-sm font-bold text-slate-500 transition-all">
+                        Batal
+                    </button>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-sm font-bold text-white transition-all">
+                            Keluar Akun
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </x-modal>
 
         @stack('scripts')
     </body>

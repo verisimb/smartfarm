@@ -16,14 +16,10 @@
                     <i class="hgi-stroke hgi-pencil-edit-01"></i>
                     Edit Data
                 </a>
-                <form action="{{ route('predictions.destroy', $prediction->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-100 px-6 py-2.5 text-sm font-bold text-red-600 transition-all hover:bg-red-100 hover:border-red-200">
-                        <i class="hgi-stroke hgi-trash-can-01"></i>
-                        Hapus
-                    </button>
-                </form>
+                <button type="button" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-delete')" class="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-100 px-6 py-2.5 text-sm font-bold text-red-600 transition-all hover:bg-red-100 hover:border-red-200">
+                    <i class="hgi-stroke hgi-trash-can-01"></i>
+                    Hapus
+                </button>
             </div>
         </div>
 
@@ -118,7 +114,7 @@
             <div class="rounded-3xl border border-slate-200 bg-white p-8">
                 <div class="flex items-center gap-3 mb-8">
                     <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
-                        <i class="hgi-stroke hgi-temperature-status text-xl"></i>
+                        <i class="hgi-stroke hgi-mountain text-xl"></i>
                     </div>
                     <h3 class="font-outfit text-xl font-bold text-slate-900">Data Lingkungan</h3>
                 </div>
@@ -149,4 +145,28 @@
             </div>
         </div>
     </div>
+
+    <!-- Delete Confirmation Modal -->
+    <x-modal name="confirm-delete" focusable>
+        <div class="p-6">
+            <h2 class="text-lg font-bold font-outfit text-slate-900">
+                Konfirmasi Hapus Data
+            </h2>
+            <p class="mt-2 text-sm text-slate-500">
+                Apakah Anda yakin ingin menghapus data riwayat analisis lahan ini? Skenario/laporan prediksi ini akan dihapus permanen dan tidak dapat dipulihkan kembali.
+            </p>
+            <div class="mt-6 flex justify-end gap-3">
+                <button type="button" x-on:click="$dispatch('close-modal', 'confirm-delete')" class="px-5 py-2.5 rounded-full border border-slate-200 hover:bg-slate-50 text-sm font-bold text-slate-500 transition-all">
+                    Batal
+                </button>
+                <form action="{{ route('predictions.destroy', $prediction->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-sm font-bold text-white transition-all">
+                        Hapus Data
+                    </button>
+                </form>
+            </div>
+        </div>
+    </x-modal>
 </x-app-layout>
