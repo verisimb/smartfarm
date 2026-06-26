@@ -64,7 +64,7 @@ gantt
 *   **Daftar Tugas (Checklist)**:
     *   [x] Menarik (*pull*) repository Git terbaru.
     *   [x] Menginstal dan mengonfigurasi Laravel Breeze untuk otentikasi user (Login, Register, Logout).
-    *   [ ] Memperbaiki UI pada sistem autentikasi agar sesuai dan konsisten dengan layout dan style website yang sudah ada.
+    *   [x] Memperbaiki UI pada sistem autentikasi agar sesuai dan konsisten dengan layout dan style website yang sudah ada.
     *   [x] Membuat controller `LandPredictionController` dengan method lengkap (`dashboard`, `index`, `create`, `store`, `show`, `edit`, `update`, `destroy`).
     *   [x] Menulis logika pada method `dashboard()` di controller untuk menghitung ringkasan data user (total prediksi, prediksi terbaru, dan tanaman terakhir yang direkomendasikan).
     *   [x] Menulis aturan validasi form input pada method `store()` dan `update()` sesuai spesifikasi (memastikan tipe data numerik dan bernilai positif).
