@@ -242,7 +242,7 @@
                     </div>
                 </div>
                 <!-- Bottom fade out effect -->
-                <div class="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-50 to-transparent"></div>
+                <div class="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-slate-50 to-transparent"></div>
             </div>
         </div>
     </section>
@@ -411,39 +411,39 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-white">
+    <footer class="border-t border-emerald-500/30 bg-emerald-600 text-white">
         <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
             <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
                 <div class="col-span-2 md:col-span-2">
                     <a href="#" class="flex items-center gap-2">
-                        <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-7 w-auto" />
+                        <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-7 w-auto brightness-0 invert" />
                     </a>
-                    <p class="mt-3 max-w-sm text-sm leading-relaxed text-slate-500">
+                    <p class="mt-3 max-w-sm text-sm leading-relaxed text-emerald-50/90">
                         Sistem Pendukung Keputusan optimasi varietas benih dan pengelompokan lahan pertanian berbasis Random Forest dan K-Means.
                     </p>
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider font-outfit">Navigasi</h4>
-                    <ul class="mt-3 space-y-2 text-sm text-slate-500">
-                        <li><a href="#fitur" class="hover:text-slate-900 transition-colors">Fitur</a></li>
-                        <li><a href="#cara-kerja" class="hover:text-slate-900 transition-colors">Cara Kerja</a></li>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider font-outfit">Navigasi</h4>
+                    <ul class="mt-3 space-y-2 text-sm text-emerald-100/90">
+                        <li><a href="#fitur" class="hover:text-white transition-colors">Fitur</a></li>
+                        <li><a href="#cara-kerja" class="hover:text-white transition-colors">Cara Kerja</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider font-outfit">Akun</h4>
-                    <ul class="mt-3 space-y-2 text-sm text-slate-500">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider font-outfit">Akun</h4>
+                    <ul class="mt-3 space-y-2 text-sm text-emerald-100/90">
                         @if (Route::has('login'))
-                            <li><a href="{{ route('login') }}" class="hover:text-slate-900 transition-colors">Masuk</a></li>
-                            <li><a href="{{ route('register') }}" class="hover:text-slate-900 transition-colors">Daftar</a></li>
+                            <li><a href="{{ route('login') }}" class="hover:text-white transition-colors">Masuk</a></li>
+                            <li><a href="{{ route('register') }}" class="hover:text-white transition-colors">Daftar</a></li>
                         @else
-                            <li><a href="#" class="hover:text-slate-900 transition-colors" onclick="alert('Halaman login tersedia setelah setup Breeze.')">Masuk</a></li>
-                            <li><a href="#" class="hover:text-slate-900 transition-colors" onclick="alert('Halaman daftar tersedia setelah setup Breeze.')">Daftar</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors" onclick="alert('Halaman login tersedia setelah setup Breeze.')">Masuk</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors" onclick="alert('Halaman daftar tersedia setelah setup Breeze.')">Daftar</a></li>
                         @endif
                     </ul>
                 </div>
             </div>
-            <div class="h-px bg-slate-200/80 my-6 sm:my-8"></div>
-            <p class="text-center text-xs text-slate-500 sm:text-sm">
+            <div class="h-px bg-white/10 my-6 sm:my-8"></div>
+            <p class="text-center text-xs text-emerald-100/75 sm:text-sm">
                 © 2026 SmartFarm — Tugas Akhir Pemrograman Web Framework.
             </p>
         </div>

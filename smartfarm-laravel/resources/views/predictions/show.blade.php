@@ -5,18 +5,18 @@
 
     <div class="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
         <!-- Top Toolbar -->
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <a href="{{ route('predictions.index') }}" class="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-widest">
                 <i class="hgi-stroke hgi-arrow-left-01"></i>
                 Kembali ke Riwayat
             </a>
             
-            <div class="flex items-center gap-3">
-                <a href="{{ route('predictions.edit', $prediction->id) }}" class="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-6 py-2.5 text-sm font-bold text-slate-600 transition-all hover:bg-slate-50 hover:border-slate-300">
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+                <a href="{{ route('predictions.edit', $prediction->id) }}" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 rounded-full bg-white border border-slate-200 px-6 py-2.5 text-sm font-bold text-slate-600 transition-all hover:bg-slate-50 hover:border-slate-300">
                     <i class="hgi-stroke hgi-pencil-edit-01"></i>
                     Edit Data
                 </a>
-                <button type="button" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-delete')" class="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-100 px-6 py-2.5 text-sm font-bold text-red-600 transition-all hover:bg-red-100 hover:border-red-200">
+                <button type="button" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-delete')" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 rounded-full bg-red-50 border border-red-100 px-6 py-2.5 text-sm font-bold text-red-600 transition-all hover:bg-red-100 hover:border-red-200">
                     <i class="hgi-stroke hgi-trash-can-01"></i>
                     Hapus
                 </button>
@@ -25,7 +25,7 @@
 
         <!-- Result Card -->
         <div class="relative overflow-hidden rounded-[40px] bg-white border border-slate-200 p-8 sm:p-12 shadow-sm">
-            <div class="absolute right-0 top-0 h-full w-1/3 bg-emerald-50/30 -z-10 translate-x-12 skew-x-12"></div>
+            <div class="absolute right-0 top-0 h-full w-1/3 bg-emerald-50/30 -z-10 translate-x-12 skew-x-12 hidden lg:block"></div>
             
             <div class="grid gap-12 lg:grid-cols-2 items-center">
                 <div>
@@ -51,7 +51,7 @@
 
                 <div class="relative">
                     <!-- Illustration Mockup -->
-                    <div class="aspect-square rounded-[3rem] bg-emerald-50 border border-emerald-100 flex flex-col items-center justify-center p-8 text-center animate-in zoom-in duration-700">
+                    <div class="w-full max-w-sm mx-auto aspect-square rounded-[3rem] bg-emerald-50 border border-emerald-100 flex flex-col items-center justify-center p-8 text-center animate-in zoom-in duration-700">
                         <i class="hgi-stroke hgi-leaf-01 text-[120px] text-emerald-600/20 mb-4"></i>
                         <div class="bg-white rounded-3xl p-6 shadow-xl shadow-emerald-900/5 border border-emerald-100 max-w-[240px] -mt-12">
                             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Detail Prediksi</span>

@@ -21,7 +21,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased bg-slate-50 text-slate-900 selection:bg-emerald-500 selection:text-white">
+    <body class="font-sans antialiased bg-slate-50 text-slate-900 selection:bg-emerald-500 selection:text-white" x-data="{ mobileSidebarOpen: false }">
         
         <div class="flex min-h-screen">
             <!-- Desktop Sidebar -->
@@ -69,13 +69,91 @@
                 </div>
             </aside>
 
-            <!-- Mobile Navbar Overlay & Sidebar (simplified for now or use Alpine.js) -->
-            <!-- For brevity and consistency with Breeze, we can use a mobile top bar and a simple drawer -->
+            <!-- Mobile Sidebar Drawer -->
+            <div x-show="mobileSidebarOpen" class="relative z-50 md:hidden" role="dialog" aria-modal="true" style="display: none;">
+                <!-- Backdrop -->
+                <div x-show="mobileSidebarOpen"
+                     x-transition:enter="transition-opacity ease-linear duration-300"
+                     x-transition:enter-start="opacity-0"
+                     x-transition:enter-end="opacity-100"
+                     x-transition:leave="transition-opacity ease-linear duration-300"
+                     x-transition:leave-start="opacity-100"
+                     x-transition:leave-end="opacity-0"
+                     class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm"
+                     @click="mobileSidebarOpen = false"></div>
+
+                <div class="fixed inset-0 flex z-50">
+                    <!-- Drawer Content -->
+                    <div x-show="mobileSidebarOpen"
+                         x-transition:enter="transition ease-in-out duration-300 transform"
+                         x-transition:enter-start="-translate-x-full"
+                         x-transition:enter-end="translate-x-0"
+                         x-transition:leave="transition ease-in-out duration-300 transform"
+                         x-transition:leave-start="translate-x-0"
+                         x-transition:leave-end="-translate-x-full"
+                         class="relative flex w-full max-w-xs flex-1 flex-col bg-white border-r border-slate-200"
+                         @click.away="mobileSidebarOpen = false">
+                        
+                        <!-- Close Button -->
+                        <div class="absolute right-0 top-0 -mr-12 pt-4">
+                            <button type="button" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-all" @click="mobileSidebarOpen = false">
+                                <span class="sr-only">Tutup sidebar</span>
+                                <i class="hgi-stroke hgi-cancel-01 text-2xl"></i>
+                            </button>
+                        </div>
+
+                        <!-- Logo -->
+                        <div class="flex h-16 items-center px-6 border-b border-slate-100 shrink-0">
+                            <a href="{{ url('/') }}" class="flex items-center gap-2.5">
+                                <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-7 w-auto" />
+                            </a>
+                        </div>
+                        
+                        <!-- Sidebar Content Links -->
+                        <div class="flex-1 overflow-y-auto px-4 py-6">
+                            <div class="mb-4">
+                                <span class="px-3 text-[10px] font-semibold uppercase tracking-wider text-slate-400">Utama</span>
+                                <nav class="mt-2 space-y-1">
+                                    <x-nav-link-custom :href="route('dashboard')" :active="request()->routeIs('dashboard')" icon="hgi-analytics-01">
+                                        Dashboard
+                                    </x-nav-link-custom>
+                                </nav>
+                            </div>
+
+                            <div class="mb-4">
+                                <span class="px-3 text-[10px] font-semibold uppercase tracking-wider text-slate-400">Prediksi Lahan</span>
+                                <nav class="mt-2 space-y-1">
+                                    <x-nav-link-custom :href="route('predictions.create')" :active="request()->routeIs('predictions.create')" icon="hgi-test-tube">
+                                        Prediksi Baru
+                                    </x-nav-link-custom>
+                                    <x-nav-link-custom :href="route('predictions.index')" :active="request()->routeIs(['predictions.index', 'predictions.show', 'predictions.edit'])" icon="hgi-database-01">
+                                        Riwayat Lahan
+                                    </x-nav-link-custom>
+                                </nav>
+                            </div>
+
+                            <div class="mt-auto pt-6 border-t border-slate-100">
+                                <x-nav-link-custom :href="route('profile.edit')" :active="request()->routeIs('profile.edit')" icon="hgi-user">
+                                    Profil Saya
+                                </x-nav-link-custom>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar Footer Logout -->
+                        <div class="p-4 border-t border-slate-100 shrink-0">
+                            <button type="button" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-logout')" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 hover:bg-red-50 hover:text-red-600 group">
+                                <i class="hgi-stroke hgi-logout-03 text-lg transition-transform group-hover:-translate-x-1"></i>
+                                Keluar Akun
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="flex-1 flex flex-col min-w-0">
                 <!-- Top Header -->
                 <header class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-slate-200/80 bg-white/80 px-4 backdrop-blur-md sm:gap-x-6 sm:px-6 lg:px-8">
-                    <button type="button" class="-m-2.5 p-2.5 text-slate-700 md:hidden" id="open-sidebar">
+                    <button type="button" class="-m-2.5 p-2.5 text-slate-700 md:hidden" @click="mobileSidebarOpen = true">
                         <span class="sr-only">Open sidebar</span>
                         <i class="hgi-stroke hgi-menu-01 text-2xl"></i>
                     </button>
