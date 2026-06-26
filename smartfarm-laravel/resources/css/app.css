@@ -17,6 +17,34 @@
     --color-emerald-600: #9db36e; /* Untuk teks & tombol */
     --color-emerald-700: #7e9354;
     --color-emerald-800: #60733a;
-    --color-emerald-900: #425321;
+    --color-emerald-950: #2a3515;
 }
 
+@layer base {
+    * {
+        @apply transition-colors duration-200;
+    }
+
+    ::selection {
+        @apply bg-emerald-500/30 text-emerald-950;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        @apply ring-4 ring-emerald-500/10 border-emerald-500 outline-none;
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+}

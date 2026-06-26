@@ -1,153 +1,124 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center">
-                    <i class="hgi-stroke hgi-database-01 text-emerald-700 text-lg"></i>
-                </div>
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">Riwayat Prediksi Lahan</h2>
-            </div>
-            <a href="{{ route('predictions.create') }}"
-               id="btn-new-prediction"
-               class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
-                <i class="hgi-stroke hgi-leaf-01"></i>
-                Prediksi Baru
-            </a>
-        </div>
+        Riwayat Analisis Lahan
     </x-slot>
 
-    <div class="py-10">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
-            {{-- Flash Messages --}}
-            @if(session('success'))
-                <div id="flash-success" class="mb-6 flex items-center gap-3 bg-emerald-50 border border-emerald-200 text-emerald-800 px-5 py-4 rounded-xl text-sm font-medium shadow-sm">
-                    <i class="hgi-stroke hgi-checkmark-circle-01 text-emerald-600 text-base flex-shrink-0"></i>
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            @if($predictions->isEmpty())
-                {{-- Empty State --}}
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-16 text-center">
-                    <div class="w-20 h-20 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-5">
-                        <i class="hgi-stroke hgi-leaf-01 text-4xl text-emerald-400"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Belum Ada Riwayat Prediksi</h3>
-                    <p class="text-gray-400 text-sm mb-8 max-w-sm mx-auto">
-                        Mulai analisis lahan pertanian Anda untuk mendapatkan rekomendasi tanaman yang tepat.
-                    </p>
-                    <a href="{{ route('predictions.create') }}"
-                       id="btn-start-prediction"
-                       class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 text-sm font-semibold rounded-full transition-all duration-200 hover:shadow-lg">
-                        <i class="hgi-stroke hgi-leaf-01"></i>
-                        Mulai Prediksi Pertama
-                    </a>
-                </div>
-            @else
-                {{-- Table Card --}}
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="px-6 py-5 border-b border-gray-50 flex items-center justify-between">
-                        <div>
-                            <h3 class="text-base font-semibold text-gray-800">Semua Riwayat Analisis</h3>
-                            <p class="text-xs text-gray-400 mt-0.5">Total {{ $predictions->count() }} prediksi tersimpan</p>
-                        </div>
-                    </div>
-
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-sm">
-                            <thead>
-                                <tr class="bg-gray-50 text-left">
-                                    <th class="px-6 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">#</th>
-                                    <th class="px-6 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Tanaman</th>
-                                    <th class="px-6 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Tipe Lahan</th>
-                                    <th class="px-6 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Cluster</th>
-                                    <th class="px-6 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">N-P-K</th>
-                                    <th class="px-6 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Tanggal</th>
-                                    <th class="px-6 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-50">
-                                @foreach($predictions as $index => $prediction)
-                                    <tr class="hover:bg-emerald-50/40 transition-colors duration-150 group">
-                                        <td class="px-6 py-4 text-gray-400 font-outfit text-xs font-medium">
-                                            {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-2.5">
-                                                <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                                                    <i class="hgi-stroke hgi-leaf-01 text-emerald-600 text-sm"></i>
-                                                </div>
-                                                <span class="font-semibold text-gray-800 capitalize">
-                                                    {{ $prediction->recommended_crop }}
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700">
-                                                {{ $prediction->land_type }}
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600 font-outfit">
-                                                Cluster {{ $prediction->cluster }}
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 text-gray-500 font-outfit text-xs">
-                                            {{ $prediction->N }}-{{ $prediction->P }}-{{ $prediction->K }}
-                                        </td>
-                                        <td class="px-6 py-4 text-gray-400 text-xs">
-                                            {{ $prediction->created_at->format('d M Y, H:i') }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-                                                <a href="{{ route('predictions.show', $prediction->id) }}"
-                                                   id="btn-show-{{ $prediction->id }}"
-                                                   title="Lihat Detail"
-                                                   class="w-8 h-8 rounded-full bg-emerald-50 hover:bg-emerald-100 flex items-center justify-center text-emerald-600 transition-colors duration-150">
-                                                    <i class="hgi-stroke hgi-analytics-01 text-sm"></i>
-                                                </a>
-                                                <a href="{{ route('predictions.edit', $prediction->id) }}"
-                                                   id="btn-edit-{{ $prediction->id }}"
-                                                   title="Edit"
-                                                   class="w-8 h-8 rounded-full bg-slate-50 hover:bg-slate-100 flex items-center justify-center text-slate-500 transition-colors duration-150">
-                                                    <i class="hgi-stroke hgi-settings-01 text-sm"></i>
-                                                </a>
-                                                <form method="POST" action="{{ route('predictions.destroy', $prediction->id) }}"
-                                                      onsubmit="return confirm('Yakin ingin menghapus prediksi ini?')">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit"
-                                                            id="btn-delete-{{ $prediction->id }}"
-                                                            title="Hapus"
-                                                            class="w-8 h-8 rounded-full bg-red-50 hover:bg-red-100 flex items-center justify-center text-red-400 hover:text-red-600 transition-colors duration-150">
-                                                        <i class="hgi-stroke hgi-delete-02 text-sm"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            @endif
+    <div class="space-y-6 animate-fade-in-up">
+        <!-- Header & Action section -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+                <h2 class="font-outfit text-2xl font-bold text-slate-900">Data Historis Lahan</h2>
+                <p class="text-sm text-slate-500">Kelola dan pantau seluruh hasil prediksi yang pernah Anda buat.</p>
+            </div>
+            <a href="{{ route('predictions.create') }}" class="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-emerald-700 hover:shadow-lg shadow-emerald-600/20 active:scale-[0.98]">
+                <i class="hgi-stroke hgi-plus-01"></i>
+                Analisis Baru
+            </a>
         </div>
-    </div>
 
-    {{-- Hugeicons CDN --}}
-    @push('scripts')
-        <script>
-            // Auto hide flash message after 4s
-            setTimeout(() => {
-                const flash = document.getElementById('flash-success');
-                if (flash) {
-                    flash.style.transition = 'opacity 0.5s';
-                    flash.style.opacity = '0';
-                    setTimeout(() => flash.remove(), 500);
-                }
-            }, 4000);
-        </script>
-    @endpush
+        @if(session('success'))
+            <div class="rounded-2xl bg-emerald-50 p-4 border border-emerald-100 flex items-center gap-3 animate-in fade-in slide-in-from-top-4 duration-500">
+                <i class="hgi-stroke hgi-checkmark-circle-01 text-emerald-600 text-xl"></i>
+                <p class="text-sm text-emerald-700 font-medium">{{ session('success') }}</p>
+            </div>
+        @endif
+
+        <!-- Table Container -->
+        <div class="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-slate-50/50 border-b border-slate-100">
+                        <tr>
+                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">No.</th>
+                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">Tgl & Waktu</th>
+                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">Nutrisi (NPK)</th>
+                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">Rekomendasi</th>
+                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">Tipe Lahan</th>
+                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        @forelse($predictions as $index => $prediction)
+                            <tr class="group hover:bg-slate-50/50 transition-colors">
+                                <td class="px-6 py-5">
+                                    <span class="text-xs font-bold text-slate-400">{{ $index + 1 }}</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <p class="text-sm font-bold text-slate-700">{{ $prediction->created_at->format('d M Y') }}</p>
+                                    <p class="text-[10px] text-slate-400 font-medium">{{ $prediction->created_at->format('H:i') }} WIB</p>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex flex-col items-center">
+                                            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">N</span>
+                                            <span class="text-xs font-black text-slate-700">{{ $prediction->N }}</span>
+                                        </div>
+                                        <div class="h-6 w-px bg-slate-200 mx-1"></div>
+                                        <div class="flex flex-col items-center">
+                                            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">P</span>
+                                            <span class="text-xs font-black text-slate-700">{{ $prediction->P }}</span>
+                                        </div>
+                                        <div class="h-6 w-px bg-slate-200 mx-1"></div>
+                                        <div class="flex flex-col items-center">
+                                            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">K</span>
+                                            <span class="text-xs font-black text-slate-700">{{ $prediction->K }}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 border border-emerald-100/50">
+                                        <i class="hgi-stroke hgi-leaf-01"></i>
+                                        {{ $prediction->recommended_crop }}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <span class="text-xs font-semibold text-slate-600">{{ $prediction->land_type }}</span>
+                                </td>
+                                <td class="px-6 py-5">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <!-- Detail Button -->
+                                        <a href="{{ route('predictions.show', $prediction->id) }}" class="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-500 transition-all hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 group/btn shadow-sm" title="Detail">
+                                            <i class="hgi-stroke hgi-view text-lg"></i>
+                                        </a>
+                                        <!-- Edit Button -->
+                                        <a href="{{ route('predictions.edit', $prediction->id) }}" class="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-500 transition-all hover:bg-amber-50 hover:text-amber-600 hover:border-amber-200 shadow-sm" title="Edit">
+                                            <i class="hgi-stroke hgi-pencil-edit-01 text-lg"></i>
+                                        </a>
+                                        <!-- Delete Button -->
+                                        <form action="{{ route('predictions.destroy', $prediction->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-500 transition-all hover:bg-red-50 hover:text-red-600 hover:border-red-200 shadow-sm" title="Hapus">
+                                                <i class="hgi-stroke hgi-delete-02 text-lg"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6" class="px-6 py-20 text-center">
+                                    <div class="flex flex-col items-center">
+                                        <div class="flex h-20 w-20 items-center justify-center rounded-full bg-slate-50 text-slate-200 mb-4">
+                                            <i class="hgi-stroke hgi-note-01 text-5xl"></i>
+                                        </div>
+                                        <h3 class="font-outfit text-lg font-bold text-slate-900">Belum Ada Data Riwayat</h3>
+                                        <p class="mt-1 text-sm text-slate-400 max-w-xs">Saat ini Anda belum melakukan prediksi apa pun. Mulai analisis pertama Anda sekarang!</p>
+                                        <a href="{{ route('predictions.create') }}" class="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-emerald-700 shadow-lg shadow-emerald-600/10 active:scale-[0.98]">
+                                            Analisis Pertama
+                                            <i class="hgi-stroke hgi-analytics-01"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        @if($predictions->isNotEmpty())
+            <p class="text-center text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-4">Akhir dari Riwayat Lahan</p>
+        @endif
+    </div>
 </x-app-layout>

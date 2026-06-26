@@ -1,137 +1,152 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center gap-3">
-            <a href="{{ route('predictions.index') }}"
-               class="w-9 h-9 rounded-full bg-gray-100 hover:bg-emerald-100 flex items-center justify-center text-gray-500 hover:text-emerald-700 transition-all duration-200">
-                <i class="hgi-stroke hgi-arrow-left-01 text-base"></i>
-            </a>
-            <div class="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center">
-                <i class="hgi-stroke hgi-analytics-01 text-emerald-700 text-lg"></i>
-            </div>
-            <div>
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">Detail Hasil Prediksi</h2>
-                <p class="text-xs text-gray-400">ID #{{ $prediction->id }} &mdash; {{ $prediction->created_at->format('d M Y, H:i') }}</p>
-            </div>
-        </div>
+        Detail Prediksi Lahan
     </x-slot>
 
-    <div class="py-10">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 space-y-6">
-
-            {{-- Flash --}}
-            @if(session('success'))
-                <div id="flash-success" class="flex items-center gap-3 bg-emerald-50 border border-emerald-200 text-emerald-800 px-5 py-4 rounded-xl text-sm font-medium shadow-sm">
-                    <i class="hgi-stroke hgi-checkmark-circle-01 text-emerald-600 text-base flex-shrink-0"></i>
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            {{-- Hero Result Card --}}
-            <div class="bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
-                {{-- Decorative blob --}}
-                <div class="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full -translate-y-1/4 translate-x-1/4"></div>
-                <div class="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/4 -translate-x-1/4"></div>
-
-                <div class="relative z-10 flex flex-col sm:flex-row sm:items-center gap-6">
-                    <div class="w-20 h-20 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                        <i class="hgi-stroke hgi-leaf-01 text-4xl text-white"></i>
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-emerald-200 text-xs font-semibold uppercase tracking-widest mb-1">Rekomendasi Tanaman</p>
-                        <h1 class="text-3xl sm:text-4xl font-bold font-outfit capitalize mb-3">
-                            {{ $prediction->recommended_crop }}
-                        </h1>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 text-white text-xs font-medium">
-                                <i class="hgi-stroke hgi-mountain text-white/70"></i>
-                                {{ $prediction->land_type }}
-                            </span>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/15 text-white text-xs font-medium font-outfit">
-                                <i class="hgi-stroke hgi-database-01 text-white/70"></i>
-                                Cluster {{ $prediction->cluster }}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Input Parameters Grid --}}
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <div class="px-6 py-5 border-b border-gray-50">
-                    <div class="flex items-center gap-2.5">
-                        <div class="w-7 h-7 rounded-lg bg-emerald-50 flex items-center justify-center">
-                            <i class="hgi-stroke hgi-test-tube text-emerald-600 text-sm"></i>
-                        </div>
-                        <h3 class="text-base font-semibold text-gray-800">Parameter Input Lahan</h3>
-                    </div>
-                </div>
-                <div class="p-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    @php
-                        $params = [
-                            ['label' => 'Nitrogen (N)', 'value' => $prediction->N, 'unit' => 'mg/kg', 'icon' => 'hgi-test-tube'],
-                            ['label' => 'Fosfor (P)', 'value' => $prediction->P, 'unit' => 'mg/kg', 'icon' => 'hgi-test-tube'],
-                            ['label' => 'Kalium (K)', 'value' => $prediction->K, 'unit' => 'mg/kg', 'icon' => 'hgi-test-tube'],
-                            ['label' => 'Suhu', 'value' => $prediction->temperature, 'unit' => '°C', 'icon' => 'hgi-temperature'],
-                            ['label' => 'Kelembaban', 'value' => $prediction->humidity, 'unit' => '%', 'icon' => 'hgi-humidity'],
-                            ['label' => 'pH Tanah', 'value' => $prediction->ph, 'unit' => 'pH', 'icon' => 'hgi-note'],
-                            ['label' => 'Curah Hujan', 'value' => $prediction->rainfall, 'unit' => 'mm', 'icon' => 'hgi-rain'],
-                        ];
-                    @endphp
-                    @foreach($params as $param)
-                        <div class="group bg-gray-50 hover:bg-emerald-50 rounded-xl p-4 transition-colors duration-200">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="hgi-stroke {{ $param['icon'] }} text-gray-400 group-hover:text-emerald-500 text-sm transition-colors duration-200"></i>
-                                <p class="text-xs text-gray-400 font-medium">{{ $param['label'] }}</p>
-                            </div>
-                            <p class="text-xl font-bold font-outfit text-gray-800">
-                                {{ number_format($param['value'], 2) }}
-                                <span class="text-xs font-normal text-gray-400 ml-0.5">{{ $param['unit'] }}</span>
-                            </p>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            {{-- Actions --}}
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <a href="{{ route('predictions.edit', $prediction->id) }}"
-                   id="btn-edit-prediction"
-                   class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-200">
-                    <i class="hgi-stroke hgi-settings-01"></i>
-                    Edit Prediksi
+    <div class="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
+        <!-- Top Toolbar -->
+        <div class="flex items-center justify-between">
+            <a href="{{ route('predictions.index') }}" class="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-widest">
+                <i class="hgi-stroke hgi-arrow-left-01"></i>
+                Kembali ke Riwayat
+            </a>
+            
+            <div class="flex items-center gap-3">
+                <a href="{{ route('predictions.edit', $prediction->id) }}" class="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-6 py-2.5 text-sm font-bold text-slate-600 transition-all hover:bg-slate-50 hover:border-slate-300">
+                    <i class="hgi-stroke hgi-pencil-edit-01"></i>
+                    Edit Data
                 </a>
-                <a href="{{ route('predictions.create') }}"
-                   id="btn-new-from-show"
-                   class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-200 hover:shadow-lg">
-                    <i class="hgi-stroke hgi-leaf-01"></i>
-                    Prediksi Lahan Baru
-                </a>
-                <form method="POST" action="{{ route('predictions.destroy', $prediction->id) }}"
-                      class="flex-1 sm:flex-none"
-                      onsubmit="return confirm('Yakin ingin menghapus prediksi ini? Data tidak dapat dikembalikan.')">
+                <form action="{{ route('predictions.destroy', $prediction->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                     @csrf
                     @method('DELETE')
-                    <button type="submit"
-                            id="btn-delete-prediction"
-                            class="w-full inline-flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 text-red-500 hover:text-red-700 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-200">
-                        <i class="hgi-stroke hgi-delete-02"></i>
+                    <button type="submit" class="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-100 px-6 py-2.5 text-sm font-bold text-red-600 transition-all hover:bg-red-100 hover:border-red-200">
+                        <i class="hgi-stroke hgi-trash-can-01"></i>
                         Hapus
                     </button>
                 </form>
             </div>
         </div>
-    </div>
 
-    @push('scripts')
-        <script>
-            setTimeout(() => {
-                const flash = document.getElementById('flash-success');
-                if (flash) {
-                    flash.style.transition = 'opacity 0.5s';
-                    flash.style.opacity = '0';
-                    setTimeout(() => flash.remove(), 500);
-                }
-            }, 4000);
-        </script>
-    @endpush
+        <!-- Result Card -->
+        <div class="relative overflow-hidden rounded-[40px] bg-white border border-slate-200 p-8 sm:p-12 shadow-sm">
+            <div class="absolute right-0 top-0 h-full w-1/3 bg-emerald-50/30 -z-10 translate-x-12 skew-x-12"></div>
+            
+            <div class="grid gap-12 lg:grid-cols-2 items-center">
+                <div>
+                    <span class="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-100 px-4 py-1 rounded-full text-[10px] font-bold text-emerald-700 uppercase tracking-widest mb-6">Analisis Berhasil</span>
+                    <h2 class="font-outfit text-4xl sm:text-5xl font-black text-slate-900 leading-tight">
+                        Tanaman Terbaik:<br>
+                        <span class="text-emerald-600 font-serif italic font-normal">{{ $prediction->recommended_crop }}</span>
+                    </h2>
+                    <p class="mt-6 text-slate-500 text-sm sm:text-base leading-relaxed max-w-sm">
+                        Berdasarkan parameter nutrisi dan lingkungan yang dimasukkan, model Random Forest merekomendasikan penanaman <span class="font-bold text-slate-900">{{ $prediction->recommended_crop }}</span> untuk hasil maksimal.
+                    </p>
+                    
+                    <div class="mt-8 flex items-center gap-4">
+                        <div class="flex h-16 w-16 items-center justify-center rounded-3xl bg-emerald-600 text-white shadow-lg shadow-emerald-200">
+                            <i class="hgi-stroke hgi-mountain text-3xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">Tipe Lahan Klasifikasi</p>
+                            <p class="mt-1 text-2xl font-black text-slate-900 font-outfit">{{ $prediction->land_type }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <!-- Illustration Mockup -->
+                    <div class="aspect-square rounded-[3rem] bg-emerald-50 border border-emerald-100 flex flex-col items-center justify-center p-8 text-center animate-in zoom-in duration-700">
+                        <i class="hgi-stroke hgi-leaf-01 text-[120px] text-emerald-600/20 mb-4"></i>
+                        <div class="bg-white rounded-3xl p-6 shadow-xl shadow-emerald-900/5 border border-emerald-100 max-w-[240px] -mt-12">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Detail Prediksi</span>
+                            <div class="mt-2 text-xl font-bold font-outfit text-slate-900">{{ $prediction->recommended_crop }}</div>
+                            <div class="mt-1 h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-emerald-500 rounded-full w-full"></div>
+                            </div>
+                            <p class="mt-3 text-[10px] text-slate-500 leading-tight">Keputusan ini diambil dengan tingkat akurasi tinggi berdasarkan dataset pertanian.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+            <!-- Nutrisi Breakdown -->
+            <div class="rounded-3xl border border-slate-200 bg-white p-8">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                        <i class="hgi-stroke hgi-test-tube text-xl"></i>
+                    </div>
+                    <h3 class="font-outfit text-xl font-bold text-slate-900">Breakdown Nutrisi</h3>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Nitrogen -->
+                    <div class="group">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="text-sm font-bold text-slate-800">Nitrogen (N)</span>
+                            <span class="font-outfit text-xl font-black text-emerald-600">{{ $prediction->N }}</span>
+                        </div>
+                        <div class="h-3 w-full bg-slate-50 rounded-full overflow-hidden border border-slate-100">
+                            <div class="h-full bg-emerald-500 transition-all duration-1000" style="width: {{ min(($prediction->N / 150) * 100, 100) }}%"></div>
+                        </div>
+                    </div>
+                    <!-- Phosphorus -->
+                    <div class="group">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="text-sm font-bold text-slate-800">Phosphorus (P)</span>
+                            <span class="font-outfit text-xl font-black text-emerald-600">{{ $prediction->P }}</span>
+                        </div>
+                        <div class="h-3 w-full bg-slate-50 rounded-full overflow-hidden border border-slate-100">
+                            <div class="h-full bg-emerald-500 transition-all duration-1000" style="width: {{ min(($prediction->P / 150) * 100, 100) }}%"></div>
+                        </div>
+                    </div>
+                    <!-- Potassium -->
+                    <div class="group">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="text-sm font-bold text-slate-800">Potassium (K)</span>
+                            <span class="font-outfit text-xl font-black text-emerald-600">{{ $prediction->K }}</span>
+                        </div>
+                        <div class="h-3 w-full bg-slate-50 rounded-full overflow-hidden border border-slate-100">
+                            <div class="h-full bg-emerald-500 transition-all duration-1000" style="width: {{ min(($prediction->K / 150) * 100, 100) }}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environment Breakdown -->
+            <div class="rounded-3xl border border-slate-200 bg-white p-8">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                        <i class="hgi-stroke hgi-temperature-status text-xl"></i>
+                    </div>
+                    <h3 class="font-outfit text-xl font-bold text-slate-900">Data Lingkungan</h3>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="rounded-2xl bg-slate-50 p-4 border border-slate-100">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Suhu</p>
+                        <p class="mt-1 text-lg font-bold text-slate-900 font-outfit">{{ number_format($prediction->temperature, 1) }} °C</p>
+                    </div>
+                    <div class="rounded-2xl bg-slate-50 p-4 border border-slate-100">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Kelembaban</p>
+                        <p class="mt-1 text-lg font-bold text-slate-900 font-outfit">{{ number_format($prediction->humidity, 1) }} %</p>
+                    </div>
+                    <div class="rounded-2xl bg-slate-50 p-4 border border-slate-100">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Keasaman (pH)</p>
+                        <p class="mt-1 text-lg font-bold text-slate-900 font-outfit">{{ number_format($prediction->ph, 1) }}</p>
+                    </div>
+                    <div class="rounded-2xl bg-slate-50 p-4 border border-slate-100">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Curah Hujan</p>
+                        <p class="mt-1 text-lg font-bold text-slate-900 font-outfit">{{ number_format($prediction->rainfall, 1) }} mm</p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-100 flex gap-3 italic">
+                    <i class="hgi-stroke hgi-info-circle text-emerald-600"></i>
+                    <p class="text-xs text-emerald-800 leading-relaxed">Seluruh data lingkungan ini krusial bagi algoritma ML untuk membedakan antara lahan basah, kering, atau sedang.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </x-app-layout>

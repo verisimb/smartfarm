@@ -93,13 +93,13 @@ gantt
 *   **Waktu**: Dimulai setelah **Fase 4 selesai** (Seluruh integrasi backend dan database dari Rama sudah selesai).
 *   **Deskripsi**: Gede bertugas mendesain seluruh tampilan halaman (*views*) agar tampak premium, bersih, responsif, dan konsisten.
 *   **Daftar Tugas (Checklist)**:
-    *   [ ] Menarik (*pull*) repository Git terbaru.
-    *   [ ] Membuat Master Layout (`layouts/app.blade.php`) dengan sidebar/navbar navigasi yang konsisten.
-    *   [ ] Membuat UI Dashboard (`dashboard.blade.php`) yang menampilkan rangkuman statistik user.
-    *   [ ] Membuat UI Form Input Prediksi (`predictions/create.blade.php`) dan Form Edit (`predictions/edit.blade.php`) beserta penanganan error validasi visual.
-    *   [ ] Membuat UI tabel Riwayat Prediksi (`predictions/index.blade.php`) dan halaman detail hasil prediksi (`predictions/show.blade.php`).
-    *   [ ] Memoles CSS/Tailwind dengan skema warna pertanian modern (hijau segar), tombol interaktif, dan efek transisi/hover.
-    *   [ ] Melakukan *push* akhir ke Git untuk pengujian kelompok secara menyeluruh.
+    *   [x] Menarik (*pull*) repository Git terbaru.
+    *   [x] Membuat Master Layout (`layouts/app.blade.php`) dengan sidebar/navbar navigasi yang konsisten.
+    *   [x] Membuat UI Dashboard (`dashboard.blade.php`) yang menampilkan rangkuman statistik user.
+    *   [x] Membuat UI Form Input Prediksi (`predictions/create.blade.php`) dan Form Edit (`predictions/edit.blade.php`) beserta penanganan error validasi visual.
+    *   [x] Membuat UI tabel Riwayat Prediksi (`predictions/index.blade.php`) dan halaman detail hasil prediksi (`predictions/show.blade.php`).
+    *   [x] Memoles CSS/Tailwind dengan skema warna pertanian modern (hijau segar), tombol interaktif, dan efek transisi/hover.
+    *   [/] Melakukan *push* terakhir ke Git untuk pengujian kelompok secara menyeluruh.
 
 ---
 
