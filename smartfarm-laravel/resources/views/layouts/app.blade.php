@@ -21,9 +21,9 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased bg-slate-50 text-slate-900 selection:bg-emerald-500 selection:text-white" x-data="{ mobileSidebarOpen: false }">
+    <body class="font-sans antialiased bg-slate-50 text-slate-900 selection:bg-emerald-500 selection:text-white overflow-x-hidden" x-data="{ mobileSidebarOpen: false }">
         
-        <div class="flex min-h-screen">
+        <div class="flex min-h-screen w-full max-w-full overflow-x-hidden">
             <!-- Desktop Sidebar -->
             <aside class="hidden md:flex w-64 shrink-0 flex-col border-r border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 h-screen">
                 <div class="flex h-16 items-center px-6 border-b border-slate-100">
@@ -159,7 +159,7 @@
                     </button>
 
                     <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-                        <div class="flex flex-1 items-center">
+                        <div class="flex flex-1 items-center min-w-0">
                             @isset($header)
                                 <h1 class="text-lg font-bold font-outfit text-slate-900 truncate">
                                     {{ $header }}

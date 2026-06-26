@@ -21,7 +21,8 @@
     <header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
         <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
             <a href="#" class="flex items-center gap-2.5 group">
-                <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-8 w-auto" />
+                <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-8 w-auto hidden md:block" />
+                <img src="{{ asset('LogoOnly.svg') }}" alt="SmartFarm Logo" class="h-8 w-auto md:hidden" />
             </a>
             
             <!-- Shortcut Nav Links -->
@@ -134,7 +135,7 @@
                     <!-- Application Interface Mockup -->
                     <div class="flex bg-white text-slate-800 h-[380px] overflow-hidden">
                         <!-- Sidebar Mockup -->
-                        <aside class="flex w-14 sm:w-44 shrink-0 flex-col border-r border-slate-200 bg-white transition-all">
+                        <aside class="hidden sm:flex w-44 shrink-0 flex-col border-r border-slate-200 bg-white transition-all">
                             <!-- Sidebar Header Mockup -->
                             <div class="flex h-12 items-center px-3 border-b border-slate-100">
                                 <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-5 w-auto hidden sm:block" />
@@ -178,7 +179,10 @@
                         <div class="flex-1 flex flex-col min-w-0 bg-slate-50">
                             <!-- Top Header Mockup -->
                             <div class="flex h-12 shrink-0 items-center justify-between border-b border-slate-200/80 bg-white px-4">
-                                <h3 class="font-outfit font-bold text-slate-900 text-sm sm:text-base">Ringkasan Dashboard</h3>
+                                <div class="flex items-center gap-2">
+                                    <i class="hgi-stroke hgi-menu-01 text-base sm:hidden text-slate-700"></i>
+                                    <h3 class="font-outfit font-bold text-slate-900 text-sm sm:text-base">Ringkasan Dashboard</h3>
+                                </div>
                                 <div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-100 scale-90 sm:scale-100 origin-right">
                                     <div class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold text-[9px]">
                                         T

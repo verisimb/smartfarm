@@ -46,7 +46,7 @@
             </div>
 
             <!-- Rekomendasi Terakhir -->
-            <div class="group rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-emerald-200">
+            <div class="group rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-emerald-200 min-w-0">
                 <div class="flex items-center justify-between">
                     <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-50 text-slate-600 transition-colors group-hover:bg-emerald-50 group-hover:text-emerald-600">
                         <i class="hgi-stroke hgi-leaf-01 text-2xl"></i>
@@ -64,7 +64,7 @@
             </div>
 
             <!-- Main Land Type (Derived from latest) -->
-            <div class="group rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-emerald-200 sm:col-span-2 lg:col-span-1">
+            <div class="group rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-emerald-200 sm:col-span-2 lg:col-span-1 min-w-0">
                 <div class="flex items-center justify-between">
                     <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-50 text-slate-600 transition-colors group-hover:bg-emerald-50 group-hover:text-emerald-600">
                         <i class="hgi-stroke hgi-mountain text-2xl"></i>
