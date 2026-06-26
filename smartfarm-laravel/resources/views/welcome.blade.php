@@ -64,20 +64,20 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden">
+    <!-- Hero & Mockup Section Wrapper -->
+    <div class="relative overflow-hidden bg-slate-50">
+        <!-- Background Image with Fade -->
+        <div class="absolute inset-x-0 bottom-0 top-[43%] sm:top-[39%] lg:top-[35%] xl:top-[33%] pointer-events-none z-0">
+            <img src="{{ asset('4096x1645.png') }}" class="w-full h-full object-cover object-top opacity-90" />
+            <!-- Top Fade to blend with bg-slate-50 -->
+            <div class="absolute inset-x-0 top-0 h-65 bg-linear-to-b from-slate-50 via-slate-50/40 to-transparent"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden bg-transparent z-10">
 
         
         <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32 relative">
-            <!-- Floating Leaf Illustration -->
-            <div class="hidden md:block absolute left-0 md:left-2 lg:left-0 xl:-left-2 top-[53%] -translate-y-1/2 z-10 pointer-events-none select-none">
-                <img src="{{ asset('leaf.png') }}" alt="Leaf Illustration" class="w-[72px] lg:w-[100px] h-auto object-contain" style="transform: rotate(-40deg);" />
-            </div>
-
-            <!-- Floating Vegetables Illustration -->
-            <div class="hidden md:block absolute right-0 md:-right-3 lg:-right-8 xl:-right-10 top-[42%] -translate-y-1/2 z-10 pointer-events-none select-none">
-                <img src="{{ asset('vegetables.png') }}" alt="Vegetables Illustration" class="w-[72px] lg:w-[100px] h-auto object-contain" />
-            </div>
 
             <div class="flex flex-col items-center text-center">
                 <span class="mb-4 inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200/50 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-700 shadow-sm">
@@ -106,15 +106,12 @@
                         </a>
                     @endif
                 </div>
-                <p class="mt-4 text-xs text-slate-400 sm:text-sm">
-                    Akurat • Instan • Mudah Digunakan
-                </p>
             </div>
         </div>
     </section>
 
     <!-- App Preview Mockup Section -->
-    <section class="relative overflow-hidden pb-0 bg-slate-50/50">
+    <section class="relative overflow-hidden pb-0 bg-transparent z-10">
         <div class="mx-auto max-w-5xl px-4 sm:px-6">
             <div class="relative">
                 <div class="overflow-hidden rounded-t-xl border border-slate-200/80 bg-white shadow-2xl sm:rounded-t-2xl">
@@ -260,6 +257,7 @@
             </div>
         </div>
     </section>
+    </div>
 
     <!-- Features Section -->
     <section id="fitur" class="py-16 sm:py-24 lg:py-32 scroll-mt-16">
