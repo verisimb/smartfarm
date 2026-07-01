@@ -44,7 +44,7 @@
                         </div>
                         <div>
                             <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">Tipe Lahan Klasifikasi</p>
-                            <p class="mt-1 text-2xl font-black text-slate-900 font-outfit">{{ $prediction->land_type }}</p>
+                            <p class="mt-1 text-2xl font-black text-slate-900 font-outfit">{{ str_contains($prediction->land_type, ' / ') ? str_replace(' / ', ' (', $prediction->land_type) . ')' : $prediction->land_type }}</p>
                         </div>
                     </div>
                 </div>

@@ -260,13 +260,13 @@
     </div>
 
     <!-- Features Section -->
-    <section id="fitur" class="py-16 sm:py-24 lg:py-32 scroll-mt-16">
+    <section id="fitur" class="py-8 sm:py-10 lg:py-12 scroll-mt-16">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
             <div class="flex flex-col items-center text-center">
                 <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200/60 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
                     <i class="hgi-stroke hgi-star text-emerald-600"></i> Fitur Utama
                 </span>
-                <h2 class="font-serif text-3xl md:text-4xl tracking-tight italic text-slate-900 font-normal">
+                <h2 class="font-serif text-4xl md:text-5xl tracking-tight italic text-slate-900 font-normal">
                     Semua yang Anda Butuhkan
                 </h2>
                 <p class="mt-4 max-w-2xl text-sm sm:text-base text-slate-500 leading-relaxed">
@@ -275,7 +275,7 @@
             </div>
 
             <!-- Features Grid -->
-            <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 <!-- Card 1: Rekomendasi Tanaman -->
                 <div class="bg-white border border-slate-200/80 rounded-2xl p-6 transition-all duration-300 hover:shadow-md">
                     <div class="flex w-12 h-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 text-xl border border-emerald-100/50"><i class="hgi-stroke hgi-leaf-01"></i></div>
@@ -325,13 +325,13 @@
     </section>
 
     <!-- How It Works Section -->
-    <section id="cara-kerja" class="border-y border-slate-200 bg-slate-50/50 py-16 sm:py-24 lg:py-32 scroll-mt-16">
+    <section id="cara-kerja" class="border-y border-slate-200 bg-slate-50/50 py-8 sm:py-10 lg:py-12 scroll-mt-16">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
             <div class="flex flex-col items-center text-center">
                 <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200/60 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
                     <i class="hgi-stroke hgi-settings-01 text-emerald-600"></i> Cara Kerja
                 </span>
-                <h2 class="font-serif text-3xl md:text-4xl tracking-tight italic text-slate-900 font-normal">
+                <h2 class="font-serif text-4xl md:text-5xl tracking-tight italic text-slate-900 font-normal">
                     Tiga Langkah Mudah
                 </h2>
                 <p class="mt-4 max-w-2xl text-sm sm:text-base text-slate-500 leading-relaxed">
@@ -340,7 +340,7 @@
             </div>
 
             <!-- Steps Grid -->
-            <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+            <div class="mt-8 grid gap-10 md:grid-cols-3 md:gap-8">
                 <!-- Step 01 -->
                 <div class="flex flex-col items-center text-center group">
                     <div class="relative">
@@ -385,10 +385,10 @@
     </section>
 
     <!-- Call to Action Section -->
-    <section class="py-16 sm:py-24 lg:py-32 bg-white">
+    <section class="py-8 sm:py-10 lg:py-12 bg-white">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
             <div class="flex flex-col items-center text-center">
-                <h2 class="font-serif text-3xl md:text-4xl tracking-tight italic text-slate-900 font-normal">
+                <h2 class="font-serif text-4xl md:text-5xl tracking-tight italic text-slate-900 font-normal">
                     Siap Mengoptimalkan Lahan Pertanian Anda?
                 </h2>
                 <p class="mt-4 max-w-xl text-sm sm:text-base text-slate-500 leading-relaxed">

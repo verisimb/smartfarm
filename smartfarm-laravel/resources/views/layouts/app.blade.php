@@ -25,7 +25,7 @@
         
         <div class="flex min-h-screen w-full max-w-full overflow-x-hidden">
             <!-- Desktop Sidebar -->
-            <aside class="hidden md:flex w-64 shrink-0 flex-col border-r border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 h-screen">
+            <aside class="hidden md:flex w-64 shrink-0 flex-col border-r border-slate-200 bg-white/80 backdrop-blur-md fixed top-0 left-0 z-30 h-screen">
                 <div class="flex h-16 items-center px-6 border-b border-slate-100">
                     <a href="{{ url('/') }}" class="flex items-center gap-2.5 group">
                         <img src="{{ asset('Logo-text.svg') }}" alt="SmartFarm Logo" class="h-7 w-auto" />
@@ -150,7 +150,7 @@
                 </div>
             </div>
 
-            <div class="flex-1 flex flex-col min-w-0">
+            <div class="flex-1 flex flex-col min-w-0 md:ml-64">
                 <!-- Top Header -->
                 <header class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-slate-200/80 bg-white/80 px-4 backdrop-blur-md sm:gap-x-6 sm:px-6 lg:px-8">
                     <button type="button" class="-m-2.5 p-2.5 text-slate-700 md:hidden" @click="mobileSidebarOpen = true">
@@ -183,7 +183,7 @@
                 </header>
 
                 <!-- Page Content -->
-                <main class="flex-1 py-8 px-4 sm:px-6 lg:px-8">
+                <main class="flex-1 p-4 sm:p-6 lg:p-8">
                     {{ $slot }}
                 </main>
             </div>
@@ -191,7 +191,7 @@
 
         <!-- Logout Confirmation Modal -->
         <x-modal name="confirm-logout" focusable>
-            <div class="p-6">
+            <div class="p-6 sm:p-8">
                 <h2 class="text-lg font-bold font-outfit text-slate-900">
                     Konfirmasi Keluar Akun
                 </h2>

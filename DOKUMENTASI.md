@@ -1,5 +1,5 @@
 # Dokumentasi Pemahaman Project SmartFarm
-Dokumentasi ini dibuat untuk membantu seluruh anggota kelompok memahami arsitektur, alur data, struktur kode, dan teknologi yang digunakan dalam project **SmartFarm Web App - Random Forest dan K-Means Crop Recommendation** sebelum sesi presentasi dan demo mata kuliah **Pemrograman Web Framework**.
+Dokumentasi ini menyajikan informasi lengkap mengenai arsitektur, alur data, struktur kode, dan teknologi yang digunakan dalam project **SmartFarm Web App - Random Forest dan K-Means Crop Recommendation**. Dokumen ini ditujukan untuk memberikan gambaran menyeluruh tentang bagaimana sistem SmartFarm diimplementasikan dan dioperasikan.
 
 ---
 
@@ -9,7 +9,7 @@ Dokumentasi ini dibuat untuk membantu seluruh anggota kelompok memahami arsitekt
 *   **Tujuan Aplikasi**: Membantu pengguna (petani, peneliti, atau akademisi) untuk mendapatkan rekomendasi jenis tanaman terbaik serta segmentasi tipe lahan berdasarkan kandungan nutrisi tanah dan kondisi klimatologi lingkungan secara real-time.
 *   **Masalah yang Diselesaikan**: Menghilangkan ketidakpastian dan kesalahan pemilihan jenis tanaman akibat penilaian manual yang subjektif. Aplikasi meminimalisir risiko gagal panen dengan memanfaatkan analisis presisi tinggi berbasis Machine Learning.
 *   **Kenapa Smart Farming**: Karena mengintegrasikan teknologi informasi modern dan data hara tanah/lingkungan secara digital guna mengotomatisasi pengambilan keputusan pertanian presisi (*precision agriculture*).
-*   **Hubungan dengan Project Data Mining**: Aplikasi web ini bertindak sebagai antarmuka pengguna (user interface) untuk menerapkan model Machine Learning yang telah dilatih pada project Data Mining kelompok. Model klasifikasi **Random Forest** (Supervised) digunakan untuk merekomendasikan tanaman, sedangkan model clustering **K-Means** (Unsupervised) digunakan untuk segmentasi tipe lahan.
+*   **Hubungan dengan Project Data Mining**: Aplikasi web ini bertindak sebagai antarmuka pengguna (user interface) untuk menerapkan model Machine Learning yang telah dilatih. Model klasifikasi **Random Forest** (Supervised) digunakan untuk merekomendasikan tanaman, sedangkan model clustering **K-Means** (Unsupervised) digunakan untuk segmentasi tipe lahan.
 *   **Teknologi yang Digunakan**: Laravel v11 (Backend & Frontend Web), MySQL (Database), FastAPI (REST API/ML Service), Python (Uvicorn, Joblib, Pandas, Scikit-learn).
 
 ---
@@ -358,13 +358,13 @@ sequenceDiagram
 
 ---
 
-## 16. Skenario Demo Aplikasi
+## 16. Skenario Uji Coba Penggunaan Aplikasi
 
-Ikuti skenario langkah demi langkah berikut untuk melakukan demo aplikasi di hadapan dosen:
+Ikuti skenario langkah demi langkah berikut untuk melakukan pengujian dan demonstrasi penggunaan aplikasi:
 
 1.  **Tampilkan Halaman Landing Page**:
     *   Buka browser di alamat `http://127.0.0.1:8000`.
-    *   Tunjukkan halaman landing page yang berisi informasi deskripsi aplikasi SmartFarm, penjelasan alur sistem, visualisasi cara kerja Random Forest dan K-Means, serta footer kelompok.
+    *   Tunjukkan halaman landing page yang berisi informasi deskripsi aplikasi SmartFarm, penjelasan alur sistem, visualisasi cara kerja Random Forest dan K-Means, serta footer aplikasi.
 2.  **Lakukan Registrasi & Login**:
     *   Klik tombol "Masuk" atau "Daftar".
     *   Gunakan akun demo yang terdaftar (atau buat akun baru secara langsung).
@@ -396,9 +396,9 @@ Ikuti skenario langkah demi langkah berikut untuk melakukan demo aplikasi di had
 
 ---
 
-## 17. Pertanyaan yang Mungkin Ditanyakan Dosen
+## 17. Pertanyaan Umum & Teknis (F.A.Q)
 
-Berikut adalah 20 daftar pertanyaan akademis yang sering muncul saat demo/sidang project web framework beserta jawabannya:
+Berikut adalah daftar pertanyaan umum dan teknis mengenai aplikasi SmartFarm beserta jawabannya:
 
 ### 1. Masalah apa yang diselesaikan oleh aplikasi SmartFarm ini?
 > **Jawaban**: Aplikasi ini menyelesaikan masalah ketidakpastian petani dalam menentukan jenis tanaman yang paling cocok ditanam di lahan mereka. Dengan memanfaatkan parameter kandungan kimia tanah dan kondisi cuaca lokal, aplikasi memberikan keputusan berbasis data (*data-driven decision*) guna mencegah kegagalan panen dan mengoptimalkan produktivitas pertanian.
@@ -406,10 +406,10 @@ Berikut adalah 20 daftar pertanyaan akademis yang sering muncul saat demo/sidang
 ### 2. Mengapa aplikasi ini dikategorikan ke dalam ranah "Smart Farming"?
 > **Jawaban**: Dikategorikan Smart Farming karena aplikasi ini menggunakan teknologi digital (web application) yang terintegrasi dengan kecerdasan buatan (Machine Learning) untuk melakukan pengolahan data pertanian secara presisi, menggantikan metode tebakan konvensional.
 
-### 3. Mengapa kelompok Anda memilih memisahkan Laravel dan FastAPI (arsitektur monorepo/microservices)? Kenapa tidak disatukan saja?
+### 3. Mengapa memilih memisahkan Laravel dan FastAPI (arsitektur monorepo/microservices)? Kenapa tidak disatukan saja?
 > **Jawaban**: Karena kedua framework memiliki spesialisasi yang berbeda. Laravel (PHP) sangat unggul, aman, dan cepat dalam mengelola struktur aplikasi web, otentikasi user, CRUD, dan manajemen session. Di sisi lain, FastAPI (Python) sangat efisien dalam memuat pustaka ilmiah data science (seperti pandas, scikit-learn, joblib) dan mengeksekusi model machine learning dengan latensi yang sangat rendah. Pemisahan ini menjaga prinsip *Single Responsibility Principle* (SRP).
 
-### 4. Apa peran utama Laravel dalam project akhir ini?
+### 4. Apa peran utama Laravel dalam project ini?
 > **Jawaban**: Laravel berperan sebagai web server utama yang menangani antarmuka pengguna (View), routing URL, validasi masukan form pengguna, otentikasi session login/logout, melakukan request HTTP API ke service ML, serta melakukan penyimpanan data ke database relasional MySQL.
 
 ### 5. Apa peran utama FastAPI dalam project ini?
@@ -428,7 +428,7 @@ Berikut adalah 20 daftar pertanyaan akademis yang sering muncul saat demo/sidang
 > **Jawaban**: Model adalah representasi objek dari tabel di database yang mempermudah query data melalui ORM Eloquent. Di project ini ada 2 model utama: `User` (tabel users) dan `LandPrediction` (tabel land_predictions). Relasinya adalah **One-to-Many**: Satu User dapat memiliki banyak LandPrediction (`hasMany`), dan setiap LandPrediction dimiliki oleh satu User (`belongsTo`).
 
 ### 10. Apa yang dimaksud dengan Migration di Laravel dan apa manfaatnya?
-> **Jawaban**: Migration adalah sistem kontrol versi (*version control*) untuk database. Ia memungkinkan pengembang mendefinisikan, mengubah, dan membagikan skema tabel database melalui kode PHP. Manfaatnya adalah konsistensi struktur database antar komputer anggota kelompok hanya dengan menjalankan satu perintah `php artisan migrate`.
+> **Jawaban**: Migration adalah sistem kontrol versi (*version control*) untuk database. Ia memungkinkan pengembang mendefinisikan, mengubah, dan membagikan skema tabel database melalui kode PHP. Manfaatnya adalah konsistensi struktur database antar pengembang hanya dengan menjalankan satu perintah `php artisan migrate`.
 
 ### 11. Di bagian mana saja aturan validasi form diterapkan dan apa tujuannya?
 > **Jawaban**: Aturan validasi diterapkan di method `store()` dan `update()` pada `LandPredictionController`. Tujuannya adalah memastikan data yang diinput oleh pengguna lengkap, bertipe numerik, dan berada dalam rentang nilai yang logis (seperti pH 0-14 dan kelembaban 0-100) sebelum dikirim ke model ML agar tidak menghasilkan prediksi yang kacau atau menyebabkan error pada Python.
@@ -439,10 +439,10 @@ Berikut adalah 20 daftar pertanyaan akademis yang sering muncul saat demo/sidang
 ### 13. Bagaimana cara Anda melindungi route CRUD agar tidak bisa diakses oleh pengguna yang belum login?
 > **Jawaban**: Dengan membungkus route-route CRUD tersebut di dalam grup route yang menerapkan middleware `auth` di file `routes/web.php`. Pengguna yang belum login yang memaksa mengakses URL tersebut akan dicegat oleh middleware dan diarahkan secara otomatis ke halaman login.
 
-### 14. Apa yang terjadi pada aplikasi web Laravel jika service FastAPI mendadak mati/mati saat demo?
+### 14. Apa yang terjadi pada aplikasi web Laravel jika service FastAPI mendadak tidak aktif?
 > **Jawaban**: Laravel telah dilengkapi dengan mekanisme *error handling* (penanganan kesalahan) menggunakan blok `try-catch` di controller. Jika koneksi ke FastAPI gagal atau timeout, Laravel akan menangkap pengecualian tersebut secara anggun (*graceful fallback*), membatalkan penyimpanan ke database, dan mengembalikan pengguna ke form input disertai pesan kesalahan visual yang jelas di bagian atas form tanpa merusak tampilan sistem (no crash).
 
-### 15. Di mana kelompok Anda menyimpan konfigurasi rahasia seperti credential database dan URL FastAPI?
+### 15. Di mana letak penyimpanan konfigurasi rahasia seperti credential database dan URL FastAPI?
 > **Jawaban**: Kami menyimpannya di file `.env` (environment configuration) lokal, misalnya variabel `DB_DATABASE=smartfarm` and `FASTAPI_URL=http://127.0.0.1:8001`. File ini tidak diunggah ke Git demi alasan keamanan, melainkan menggunakan `config/services.php` sebagai penghubung konfigurasi di Laravel.
 
 ### 16. Apa itu algoritma Random Forest dan mengapa digunakan untuk rekomendasi tanaman?
@@ -454,7 +454,7 @@ Berikut adalah 20 daftar pertanyaan akademis yang sering muncul saat demo/sidang
 ### 18. Mengapa data input perlu diproses menggunakan StandardScaler sebelum dimasukkan ke model K-Means di FastAPI?
 > **Jawaban**: Karena algoritma K-Means sangat sensitif terhadap perbedaan skala nilai fitur. Fitur seperti Curah Hujan (rainfall) memiliki kisaran nilai ratusan, sedangkan pH hanya memiliki kisaran nilai satuan. Jika tidak dilakukan standarisasi (scaling), fitur dengan kisaran angka besar akan mendominasi perhitungan jarak Euclidean, sehingga hasil clustering menjadi tidak akurat.
 
-### 19. Apa keterbatasan atau kekurangan dari aplikasi SmartFarm yang Anda bangun saat ini?
+### 19. Apa keterbatasan atau kekurangan dari aplikasi SmartFarm yang dibangun saat ini?
 > **Jawaban**: Keterbatasan aplikasi saat ini antara lain:
 > 1. Belum menampilkan persentase keyakinan (*confidence score*) untuk rekomendasi tanaman di UI Laravel.
 > 2. Visualisasi statistik dashboard masih sederhana dan belum menyertakan grafik analitis agregat (seperti grafik pie tanaman yang paling sering direkomendasikan).
@@ -468,62 +468,11 @@ Berikut adalah 20 daftar pertanyaan akademis yang sering muncul saat demo/sidang
 
 ---
 
-## 18. Template Jawaban Anggota Kelompok
+## 18. Panduan Teknis & Instalasi Lokal
 
-Gunakan template pembagian tugas di bawah ini sebagai panduan bagi tiap anggota kelompok untuk menjelaskan kontribusinya masing-masing saat ditanya oleh dosen penguji:
+Langkah-langkah perintah terminal untuk menjalankan project di komputer lokal:
 
-### 1. Penanggung Jawab Fase 1: Very
-*   **Peran/Tugas**: Inisiasi Project & FastAPI ML Service
-*   **Fokus Kode**: `ml-service/main.py`, file model `.pkl`, `resources/views/welcome.blade.php`.
-*   **Alur Kerja**:
-    1.  Membuat struktur inisiasi repositori Git monorepo kelompok.
-    2.  Membangun service FastAPI di Python, menulis skema request Pydantic, memuat model ML menggunakan Joblib, dan menyusun fungsi `/predict`.
-    3.  Mendesain Landing Page awal (`welcome.blade.php`) menggunakan Tailwind CSS v4.
-*   **Poin Penting untuk Dijelaskan**: Cara memuat model Random Forest dan K-Means secara efisien di Python dan alur pembuatan response data JSON di FastAPI.
-
-### 2. Penanggung Jawab Fase 2: Ayu
-*   **Peran/Tugas**: Database Schema, Eloquent Model, & Routing Setup
-*   **Fokus Kode**: `database/migrations/*_create_land_predictions_table.php`, `app/Models/LandPrediction.php`, `app/Models/User.php` (relasi), `routes/web.php`.
-*   **Alur Kerja**:
-    1.  Membuat skema tabel migrasi `land_predictions` beserta tipe datanya.
-    2.  Mendefinisikan properti Eloquent Model (fillable) dan menulis fungsi relasi One-to-Many di model User dan model LandPrediction.
-    3.  Menyusun struktur route web utama di Laravel.
-*   **Poin Penting untuk Dijelaskan**: Konsep migrasi database di Laravel, skema kolom tabel prediksi, dan bagaimana relasi antarmodel Eloquent dideklarasikan.
-
-### 3. Penanggung Jawab Fase 3: Arisada
-*   **Peran/Tugas**: Sistem Autentikasi, Controller Write & Integrasi API
-*   **Fokus Kode**: `app/Http/Controllers/LandPredictionController.php` (method `store` & `update`), `config/services.php`, `.env` kustomisasi.
-*   **Alur Kerja**:
-    1.  Menginstal dan mengonfigurasi Laravel Breeze untuk kebutuhan otentikasi.
-    2.  Menulis aturan validasi data tanah di controller.
-    3.  Menghubungkan Laravel ke FastAPI menggunakan HTTP Client, menangani data JSON, dan menyimpan hasil sukses atau menangkap error API (try-catch).
-*   **Poin Penting untuk Dijelaskan**: Cara kerja otentikasi Breeze, penerapan kode validasi form, dan implementasi integrasi API beserta *error fallback*-nya.
-
-### 4. Penanggung Jawab Fase 4: Controller Read/Delete Logic
-*   **Peran/Tugas**: Controller Read & Delete Logic (Rama)
-*   **Fokus Kode**: `app/Http/Controllers/LandPredictionController.php` (method `dashboard`, `index`, `show`, `destroy`).
-*   **Alur Kerja**:
-    1.  Menulis query pengambilan data riwayat prediksi milik user yang sedang aktif.
-    2.  Menyusun logika hitungan statistik ringkasan dashboard.
-    3.  Menulis perintah penghapusan record database (`$prediction->delete()`).
-*   **Poin Penting untuk Dijelaskan**: Penggunaan query Eloquent ORM untuk membatasi pengambilan data agar hanya milik user yang sedang login (`auth()->id()`) demi keamanan privasi data.
-
-### 5. Penanggung Jawab Fase 5: Pembuatan UI & Estetika Blade Views
-*   **Peran/Tugas**: Estetika UI & View Polish (Gede)
-*   **Fokus Kode**: `resources/views/layouts/app.blade.php` (Master layout), `resources/views/dashboard.blade.php`, `resources/views/predictions/*.blade.php`, `resources/css/app.css` (Tailwind @theme).
-*   **Alur Kerja**:
-    1.  Membangun Master layout dengan navigasi sidebar dan dropdown user.
-    2.  Mendesain halaman dashboard, form input, form edit, tabel riwayat, dan detail visual menggunakan Tailwind CSS v4.
-    3.  Mengintegrasikan ikon Hugeicons dan menerapkan skema warna pertanian modern (emerald).
-*   **Poin Penting untuk Dijelaskan**: Penerapan `@theme` kustom Tailwind v4 di CSS, pembuatan tata letak halaman yang dinamis dan responsif, serta animasi mikro (seperti fade-in-up).
-
----
-
-## 19. Catatan Teknis untuk Demo
-
-Langkah-langkah perintah terminal untuk memastikan project berjalan lancar di komputer lokal saat demo:
-
-### 19.1 Langkah Menjalankan FastAPI ML Service
+### 18.1 Langkah Menjalankan FastAPI ML Service
 1.  Buka terminal, masuk ke direktori service ML:
     ```bash
     cd ml-service
@@ -541,7 +490,7 @@ Langkah-langkah perintah terminal untuk memastikan project berjalan lancar di ko
     ```
     *(FastAPI berjalan aktif di http://127.0.0.1:8001)*
 
-### 19.2 Langkah Menjalankan Web Application Laravel
+### 18.2 Langkah Menjalankan Web Application Laravel
 1.  Buka terminal baru, masuk ke direktori Laravel:
     ```bash
     cd smartfarm-laravel

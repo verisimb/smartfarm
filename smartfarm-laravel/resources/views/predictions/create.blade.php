@@ -3,11 +3,11 @@
         Prediksi Lahan Baru
     </x-slot>
 
-    <div class="max-w-4xl mx-auto animate-fade-in-up">
+    <div class="space-y-6 animate-fade-in-up">
         <!-- Header Section -->
-        <div class="mb-8 text-center">
-            <h2 class="font-outfit text-3xl font-bold text-slate-900">Rekomendasi Tanaman & Segmentasi Lahan</h2>
-            <p class="mt-2 text-slate-500 text-sm sm:text-base">Masukkan parameter tanah dan lingkungan Anda untuk mendapatkan rekomendasi tanaman serta segmentasi tipe lahan berbasis AI.</p>
+        <div>
+            <h2 class="font-outfit text-2xl font-bold text-slate-900">Rekomendasi Tanaman & Segmentasi Lahan</h2>
+            <p class="text-sm text-slate-500">Masukkan parameter tanah dan lingkungan Anda untuk mendapatkan rekomendasi tanaman serta segmentasi tipe lahan berbasis AI.</p>
         </div>
 
         @if($errors->has('api_error'))

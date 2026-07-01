@@ -72,7 +72,7 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-5">
-                                    <span class="text-xs font-semibold text-slate-600">{{ $prediction->land_type }}</span>
+                                    <span class="text-xs font-semibold text-slate-600">{{ str_contains($prediction->land_type, ' / ') ? str_replace(' / ', ' (', $prediction->land_type) . ')' : $prediction->land_type }}</span>
                                 </td>
                                 <td class="px-6 py-5">
                                     <div class="flex items-center justify-center gap-2">
